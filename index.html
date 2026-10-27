@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lofi Desk</title>
+  <title>TAB-LE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Quicksand:wght@500;600;700&family=VT323&display=swap" rel="stylesheet">
@@ -12,24 +12,42 @@
 <body>
 
   <header class="bar">
+    <h1 class="brand">TAB-LE</h1>
+
     <div class="theme-switch" role="group" aria-label="Lighting mode">
       <button type="button" data-theme-btn="light" aria-pressed="true">Light</button>
       <button type="button" data-theme-btn="night" aria-pressed="false">Night</button>
       <button type="button" data-theme-btn="dark" aria-pressed="false">Dark</button>
     </div>
 
-    <div class="add-wrap">
-      <button type="button" id="addBtn" class="add-btn" aria-expanded="false" aria-controls="addMenu">+ Add widget</button>
-      <ul id="addMenu" class="add-menu" hidden></ul>
+    <div class="menu-wrap">
+      <button type="button" class="pill-btn" aria-expanded="false" aria-controls="addMenu">+ Add widget</button>
+      <ul id="addMenu" class="pop" hidden></ul>
+    </div>
+
+    <div class="menu-wrap">
+      <button type="button" class="pill-btn" aria-expanded="false" aria-controls="settingsPanel">Settings</button>
+      <div id="settingsPanel" class="pop settings" hidden>
+        <p class="pop-title">Wood color</p>
+        <div id="swatches" class="swatches"></div>
+        <label class="custom">
+          <span>Custom</span>
+          <input type="color" id="woodPicker" value="#4a4284">
+        </label>
+        <button type="button" id="resetBtn" class="reset">Reset table</button>
+      </div>
     </div>
   </header>
 
-  <main id="desk" class="desk">
-    <div id="items" class="items"></div>
-    <div id="light" class="light" aria-hidden="true"></div>
-  </main>
+  <div class="table" id="table">
+    <main id="desk" class="desk">
+      <div class="mat"></div>
+      <div id="items" class="items"></div>
+      <div id="light" class="light" aria-hidden="true"></div>
+    </main>
+  </div>
 
-  <p class="hint">Drag anything to rearrange. Move the lamp to move the light.</p>
+  <p class="hint">Drag to move. Right-click to rotate. Drag a corner to resize.</p>
 
   <script src="script.js"></script>
 </body>
