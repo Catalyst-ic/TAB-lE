@@ -91,6 +91,10 @@
     brave: "https://search.brave.com/search?q=",
   };
 
+  function engineLabel(k) {
+    return { google: "Google", duckduckgo: "DuckDuckGo", bing: "Bing", brave: "Brave" }[k] || "Google";
+  }
+
   function searchUrl(q) {
     if (/^(https?:\/\/)?[^\s/]+\.[a-z]{2,}(\/\S*)?$/i.test(q)) {
       return /^https?:\/\//i.test(q) ? q : "https://" + q;
@@ -191,28 +195,89 @@
       className: "widget w-calendar",
       build(el) {
         const now = new Date();
-        const first = new Date(now.getFullYear(), now.getMonth(), 1).getDay();
-        const days = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
-        const month = now.toLocaleString("en-US", { month: "short" }).toUpperCase();
+        let y = now.getFullYear();
+        let m = now.getMonth();
+        let busy = false;
 
-        let cells = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => `<span class="dow">${d}</span>`).join("");
-        for (let i = 0; i < first; i++) cells += "<span></span>";
-        for (let d = 1; d <= days; d++) {
-          cells += `<span${d === now.getDate() ? ' class="today"' : ""}>${d}</span>`;
+        function sheetHTML(yy, mm) {
+          const first = new Date(yy, mm, 1).getDay();
+          const days = new Date(yy, mm + 1, 0).getDate();
+          const label = new Date(yy, mm, 1).toLocaleString("en-US", { month: "short" }).toUpperCase() + " " + yy;
+          const isNow = yy === now.getFullYear() && mm === now.getMonth();
+          let cells = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => `<span class="dow">${d}</span>`).join("");
+          for (let i = 0; i < 42; i++) {
+            const d = i - first + 1;
+            cells += d >= 1 && d <= days ? `<span${isNow && d === now.getDate() ? ' class="today"' : ""}>${d}</span>` : "<span></span>";
+          }
+          return `
+            <div class="cal-head">
+              <button type="button" class="cal-nav" data-d="-1" aria-label="Previous month">\u2039</button>
+              <button type="button" class="cal-month" title="Back to today">${label}</button>
+              <button type="button" class="cal-nav" data-d="1" aria-label="Next month">\u203a</button>
+              <svg class="cal-art" viewBox="0 0 92 32" aria-hidden="true">
+                <path class="m2" d="M40 30L58 8L76 30Z"/>
+                <path class="m1" d="M8 30L32 6L56 30Z"/>
+                <path class="m1" d="M50 30L68 12L88 30Z"/>
+              </svg>
+            </div>
+            <div class="cal-grid">${cells}</div>`;
         }
-        const tail = (7 - ((first + days) % 7)) % 7;
-        for (let i = 0; i < tail; i++) cells += "<span></span>";
 
-        el.innerHTML = `
-          <div class="cal-head">
-            <span class="cal-month">${month} ${now.getFullYear()}</span>
-            <svg class="cal-art" viewBox="0 0 92 32" aria-hidden="true">
-              <path class="m2" d="M40 30L58 8L76 30Z"/>
-              <path class="m1" d="M8 30L32 6L56 30Z"/>
-              <path class="m1" d="M50 30L68 12L88 30Z"/>
-            </svg>
-          </div>
-          <div class="cal-grid">${cells}</div>`;
+        el.innerHTML = `<div class="cal-pages"><div class="cal-sheet"></div></div>`;
+        const pages = el.querySelector(".cal-pages");
+        const sheet = el.querySelector(".cal-sheet");
+        sheet.innerHTML = sheetHTML(y, m);
+
+        function go(ny, nm, dir) {
+          if (busy) return;
+          busy = true;
+          const flip = document.createElement("div");
+          flip.className = "cal-flip " + (dir > 0 ? "next" : "prev");
+          flip.setAttribute("aria-hidden", "true");
+          if (dir > 0) {
+            flip.innerHTML = sheet.innerHTML;
+            sheet.innerHTML = sheetHTML(ny, nm);
+            pages.appendChild(flip);
+            setTimeout(() => {
+              flip.remove();
+              busy = false;
+            }, 520);
+          } else {
+            flip.innerHTML = sheetHTML(ny, nm);
+            pages.appendChild(flip);
+            setTimeout(() => {
+              sheet.innerHTML = sheetHTML(ny, nm);
+              flip.remove();
+              busy = false;
+            }, 520);
+          }
+          y = ny;
+          m = nm;
+        }
+
+        el.addEventListener("click", (e) => {
+          const b = e.target.closest(".cal-nav, .cal-month");
+          if (!b || !sheet.contains(b)) return;
+          if (b.classList.contains("cal-month")) {
+            const diff = (now.getFullYear() - y) * 12 + now.getMonth() - m;
+            if (diff) go(now.getFullYear(), now.getMonth(), diff > 0 ? 1 : -1);
+            return;
+          }
+          const d = Number(b.dataset.d);
+          const t = new Date(y, m + d, 1);
+          go(t.getFullYear(), t.getMonth(), d);
+        });
+
+        el.addEventListener(
+          "wheel",
+          (e) => {
+            e.preventDefault();
+            const d = e.deltaY > 0 ? 1 : -1;
+            const t = new Date(y, m + d, 1);
+            go(t.getFullYear(), t.getMonth(), d);
+          },
+          { passive: false }
+        );
       },
     },
 
@@ -366,29 +431,40 @@
     },
 
     search: {
-      label: "Laptop search",
+      label: "Monitor search",
       addable: true,
       removable: true,
       resizable: true,
-      className: "widget w-search",
+      className: "monitor",
       build(el) {
+        const now = new Date();
+        const h = now.getHours();
+        const greet = h < 5 ? "Still up" : h < 12 ? "Good morning" : h < 17 ? "Good afternoon" : h < 21 ? "Good evening" : "Good night";
+        const day = now.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
+
         el.innerHTML = `
-          <div class="lap-screen">
-            <span class="lap-greet"></span>
-            <form class="lap-form">
-              <input type="text" class="search-input" placeholder="Search the web..." aria-label="Search" autocomplete="off" spellcheck="false">
-              <button type="submit" aria-label="Search">\u21b5</button>
-            </form>
-          </div>
-          <div class="lap-deck"><div class="lap-keys"></div><div class="lap-pad"></div></div>`;
-        const h = new Date().getHours();
-        el.querySelector(".lap-greet").textContent =
-          h < 5 ? "Still up?" : h < 12 ? "Good morning" : h < 17 ? "Good afternoon" : h < 21 ? "Good evening" : "Good night";
-        el.querySelector(".lap-form").addEventListener("submit", (e) => {
+          <div class="mon-stand"><span class="mon-neck"></span><span class="mon-foot"></span></div>
+          <div class="mon-body">
+            <div class="mon-glass">
+              <div class="mon-time"><b data-h>12</b><i>:</i><b data-m>00</b></div>
+              <p class="mon-sub">${greet}. ${day}.</p>
+              <form class="mon-form">
+                <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <input type="text" class="search-input" aria-label="Search" autocomplete="off" spellcheck="false">
+                <button type="submit" aria-label="Search">\u21b5</button>
+              </form>
+            </div>
+            <div class="mon-chin"><span class="mon-led"></span></div>
+          </div>`;
+
+        const input = el.querySelector("input");
+        input.placeholder = "Search with " + engineLabel(state.engine);
+        el.querySelector(".mon-form").addEventListener("submit", (e) => {
           e.preventDefault();
-          const q = el.querySelector("input").value.trim();
+          const q = input.value.trim();
           if (q) location.href = searchUrl(q);
         });
+        tickClocks();
       },
     },
 
@@ -619,6 +695,7 @@
     el.style.zIndex = item.z || 1;
     el.style.setProperty("--rot", (item.rot || 0) + "deg");
     el.style.setProperty("--scale", item.scale || 1);
+    el.style.setProperty("--fx", item.flip ? -1 : 1);
     type.build(el, item);
 
     if (type.removable) {
@@ -726,14 +803,16 @@
       const r = ((item.rot || 0) * Math.PI) / 180;
       const c = Math.cos(r);
       const n = Math.sin(r);
-      const ox = (LAMP_OX - LAMP_W / 2) * s;
+      const f = item.flip ? -1 : 1;
+      const ox = f * (LAMP_OX - LAMP_W / 2) * s;
       const oy = (LAMP_OY - LAMP_H / 2) * s;
       const cx = el.offsetLeft + el.offsetWidth / 2;
       const cy = el.offsetTop + el.offsetHeight / 2;
       const lx = cx + ox * c - oy * n;
       const ly = cy + ox * n + oy * c;
-      const dx = LAMP_DIR.x * c - LAMP_DIR.y * n;
-      const dy = LAMP_DIR.x * n + LAMP_DIR.y * c;
+      const dx0 = f * LAMP_DIR.x;
+      const dx = dx0 * c - LAMP_DIR.y * n;
+      const dy = dx0 * n + LAMP_DIR.y * c;
       const on = state.theme === "night" && !(item.data && item.data.on === false);
 
       light.style.setProperty("--lx", lx + "px");
@@ -779,7 +858,7 @@
       const r = ((item.rot || 0) * Math.PI) / 180;
       const sx = ux * Math.cos(r) + uy * Math.sin(r);
       const sy = -ux * Math.sin(r) + uy * Math.cos(r);
-      el.style.setProperty("--sx", sx.toFixed(3));
+      el.style.setProperty("--sx", (item.flip ? -sx : sx).toFixed(3));
       el.style.setProperty("--sy", sy.toFixed(3));
     });
   }
@@ -894,8 +973,13 @@
     e.preventDefault();
     const item = findItem(el.dataset.id);
     if (!item) return;
-    item.rot = (item.rot || 0) + (e.shiftKey ? -ROT_STEP : ROT_STEP);
-    el.style.setProperty("--rot", item.rot + "deg");
+    if (item.type === "lamp" && !e.shiftKey) {
+      item.flip = !item.flip;
+      el.style.setProperty("--fx", item.flip ? -1 : 1);
+    } else {
+      item.rot = (item.rot || 0) + (e.shiftKey && item.type !== "lamp" ? -ROT_STEP : ROT_STEP);
+      el.style.setProperty("--rot", item.rot + "deg");
+    }
     setPos(el, item, el.offsetLeft, el.offsetTop);
     if (item.type === "lamp") updateLights();
     updateShadows();
@@ -1005,6 +1089,7 @@
   engineSel.value = ENGINES[state.engine] ? state.engine : "google";
   engineSel.addEventListener("change", () => {
     state.engine = engineSel.value;
+    document.querySelectorAll(".search-input").forEach((i) => (i.placeholder = "Search with " + engineLabel(state.engine)));
     save();
   });
 
