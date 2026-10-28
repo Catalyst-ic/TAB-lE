@@ -6,10 +6,25 @@
   <title>TAB-LE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Quicksand:wght@500;600;700&family=VT323&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Patrick+Hand&family=Quicksand:wght@500;600;700&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <div class="room" aria-hidden="true">
+    <div class="wall">
+      <div class="poster p1"></div>
+      <div class="poster p2"></div>
+      <div class="poster p3"></div>
+      <div class="window"></div>
+    </div>
+    <div class="floor">
+      <div class="rug"></div>
+      <div class="chair"></div>
+      <div class="leg l"></div>
+      <div class="leg r"></div>
+    </div>
+  </div>
 
   <header class="bar">
     <h1 class="brand">TAB-LE</h1>
@@ -32,7 +47,16 @@
         <div id="swatches" class="swatches"></div>
         <label class="custom">
           <span>Custom</span>
-          <input type="color" id="woodPicker" value="#4a4284">
+          <input type="color" id="woodPicker" value="#e0b074">
+        </label>
+        <label class="custom">
+          <span>Search with</span>
+          <select id="engine">
+            <option value="google">Google</option>
+            <option value="duckduckgo">DuckDuckGo</option>
+            <option value="bing">Bing</option>
+            <option value="brave">Brave</option>
+          </select>
         </label>
         <button type="button" id="resetBtn" class="reset">Reset table</button>
       </div>
@@ -41,13 +65,36 @@
 
   <div class="table" id="table">
     <main id="desk" class="desk">
-      <div class="mat"></div>
+      <div id="plants" class="plants" aria-hidden="true"></div>
       <div id="items" class="items"></div>
-      <div id="light" class="light" aria-hidden="true"></div>
+      <svg class="sun" viewBox="0 0 1000 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <filter id="sunblur"><feGaussianBlur stdDeviation="2.4"/></filter>
+          <path id="lf" d="M0 0C-14 4 -20 -14 -10 -24C-6 -28 -2 -32 0 -40C2 -32 6 -28 10 -24C20 -14 14 4 0 0Z"/>
+        </defs>
+        <g class="sun-sway" filter="url(#sunblur)">
+          <polygon points="640,-20 730,-20 350,700 250,700"/>
+          <polygon points="770,-20 815,-20 450,700 405,700"/>
+          <polygon points="880,-20 1020,-20 720,700 580,700"/>
+          <use href="#lf" transform="translate(890 90) scale(2.8) rotate(15)"/>
+          <use href="#lf" transform="translate(790 150) scale(2.6) rotate(-20)"/>
+          <use href="#lf" transform="translate(940 210) scale(2.8) rotate(40)"/>
+          <use href="#lf" transform="translate(840 265) scale(3) rotate(5)"/>
+          <use href="#lf" transform="translate(720 330) scale(2.4) rotate(-35)"/>
+          <use href="#lf" transform="translate(905 350) scale(2.6) rotate(25)"/>
+          <use href="#lf" transform="translate(640 420) scale(2.2) rotate(10)"/>
+          <use href="#lf" transform="translate(790 465) scale(2.7) rotate(-15)"/>
+          <use href="#lf" transform="translate(545 520) scale(2.2) rotate(30)"/>
+          <use href="#lf" transform="translate(705 565) scale(2.4) rotate(-5)"/>
+          <use href="#lf" transform="translate(440 600) scale(2) rotate(15)"/>
+          <use href="#lf" transform="translate(965 475) scale(2.6) rotate(-25)"/>
+        </g>
+      </svg>
+      <div class="ambient" aria-hidden="true"></div>
     </main>
   </div>
 
-  <p class="hint">Drag to move. Right-click to rotate. Drag a corner to resize.</p>
+  <p class="hint">Drag to move. Right-click to rotate. Double-click a lamp to switch it.</p>
 
   <script src="script.js"></script>
 </body>
