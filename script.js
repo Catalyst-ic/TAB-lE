@@ -45,20 +45,18 @@
     engine: "google",
     zTop: 20,
     items: [
-      { id: uid(), type: "lamp", x: 0.039, y: 0.48, z: 1, rot: 0, scale: 0.75, data: { on: true } },
-      { id: uid(), type: "note", x: 0.157, y: 0.27, z: 2, rot: -8, scale: 1.1, data: { text: "LETS GO\nHACKCUB!!", color: "pink" } },
-      {
-        id: uid(), type: "todo", x: 0.293, y: 0.04, z: 3, rot: 12, scale: 0.9,
-        data: { tasks: [{ t: "ship", d: false }, { t: "super star", d: false }] },
-      },
-      { id: uid(), type: "timer", x: 0.75, y: 0.049, z: 4, rot: 0, scale: 1.07, data: { mins: 5, left: 300, endAt: null } },
-      { id: uid(), type: "note", x: 0.85, y: 0.36, z: 5, rot: 10, scale: 1, data: { text: "What is the\npurpose of life\nif not super\nstar??", color: "blue" } },
-      { id: uid(), type: "search", x: 0.495, y: 0.473, z: 6, rot: 0, scale: 1.43 },
-      { id: uid(), type: "notebook", x: 0.211, y: 0.858, z: 7, rot: 15, scale: 1, data: { text: "", open: false } },
-      { id: uid(), type: "link", x: 0.032, y: 0.82, z: 8, rot: 0, scale: 1, data: { label: "News", url: "https://news.google.com", color: "lilac" } },
-      { id: uid(), type: "link", x: 0.499, y: 0.909, z: 9, rot: 0, scale: 0.88, data: { label: "Mail", url: "https://mail.google.com", color: "pink" } },
-      { id: uid(), type: "clock", x: 0.727, y: 0.9, z: 10, rot: -8, scale: 1.1 },
-      { id: uid(), type: "calendar", x: 0.976, y: 0.808, z: 11, rot: 0, scale: 1.05 },
+      { id: uid(), type: "lamp", x: 0.042, y: 0.48, z: 1, rot: 0, scale: 0.6, data: { on: true } },
+      { id: uid(), type: "note", x: 0.168, y: 0.364, z: 2, rot: -8, scale: 0.8, data: { text: "LETS GO\nHACKCUB!!", color: "pink" } },
+      { id: uid(), type: "todo", x: 0.302, y: 0.047, z: 3, rot: -6, scale: 0.82, data: { tasks: [{ t: "ship", d: false }, { t: "super star", d: false }] } },
+      { id: uid(), type: "weather", x: 0.603, y: 0.038, z: 4, rot: 0, scale: 0.6, data: { city: null, unit: "c", cache: null } },
+      { id: uid(), type: "timer", x: 0.798, y: 0.028, z: 5, rot: 0, scale: 0.86, data: { mins: 5, left: 300, endAt: null } },
+      { id: uid(), type: "note", x: 0.749, y: 0.509, z: 6, rot: 10, scale: 0.8, data: { text: "What is the\npurpose of life\nif not super\nstar??", color: "blue" } },
+      { id: uid(), type: "search", x: 0.495, y: 0.475, z: 7, rot: 0, scale: 1.14 },
+      { id: uid(), type: "notebook", x: 0.222, y: 0.922, z: 8, rot: 10, scale: 0.72, data: { text: "", open: false } },
+      { id: uid(), type: "link", x: 0.031, y: 0.842, z: 9, rot: 0, scale: 0.84, data: { label: "News", url: "https://news.google.com", color: "lilac", kind: "custom" } },
+      { id: uid(), type: "link", x: 0.512, y: 0.933, z: 10, rot: 0, scale: 0.7, data: { label: "Mail", url: "https://mail.google.com", color: "pink", kind: "custom" } },
+      { id: uid(), type: "clock", x: 0.727, y: 0.936, z: 11, rot: -8, scale: 0.9 },
+      { id: uid(), type: "calendar", x: 0.961, y: 0.868, z: 12, rot: 0, scale: 0.84 },
     ],
   });
 
@@ -230,19 +228,98 @@
   };
 
   const LINK_PRESETS = [
-    ["News", "https://news.google.com", "lilac"],
-    ["Trading", "https://www.tradingview.com", "mint"],
-    ["Crypto", "https://www.coingecko.com", "yellow"],
-    ["Finance", "https://finance.yahoo.com", "blue"],
-    ["Mail", "https://mail.google.com", "pink"],
-    ["Maps", "https://maps.google.com", "mint"],
-    ["Videos", "https://www.youtube.com", "pink"],
-    ["Music", "https://open.spotify.com", "lilac"],
-    ["Code", "https://github.com", "blue"],
-    ["Docs", "https://docs.google.com", "yellow"],
-    ["Shopping", "https://www.amazon.com", "mint"],
-    ["Reddit", "https://www.reddit.com", "pink"],
+    ["News", "https://news.google.com", "paper", "news"],
+    ["Trading", "https://www.tradingview.com", "ink", "trading"],
+    ["Crypto", "https://www.coingecko.com", "yellow", "crypto"],
+    ["Finance", "https://finance.yahoo.com", "mint", "finance"],
+    ["Mail", "https://mail.google.com", "pink", "mail"],
+    ["Maps", "https://maps.google.com", "blue", "maps"],
+    ["Videos", "https://www.youtube.com", "ink", "videos"],
+    ["Music", "https://open.spotify.com", "lilac", "music"],
+    ["Code", "https://github.com", "ink", "code"],
+    ["Docs", "https://docs.google.com", "blue", "docs"],
+    ["Shopping", "https://www.amazon.com", "yellow", "shop"],
+    ["Reddit", "https://www.reddit.com", "pink", "reddit"],
   ];
+
+  const LINK_ART = {
+    news: `<svg class="lk-art" viewBox="0 0 230 138" aria-hidden="true">
+      <path class="k-ln" fill="none" style="stroke-width:3" d="M14 46H216"/>
+      <path class="k-ln" fill="none" style="stroke-width:1.5" d="M14 51H216"/>
+      <rect class="k-f1 k-ln" x="14" y="62" width="76" height="46" rx="2"/>
+      <path class="k-f2" d="M15 107L40 84L58 98L72 86L89 107Z"/>
+      <circle class="k-ac" cx="74" cy="76" r="6"/>
+      <path class="k-soft" d="M102 68H216M102 80H216M102 92H190M102 104H216"/>
+      <path class="k-soft" d="M14 120H216M14 130H150"/>
+    </svg>`,
+    mail: `<svg class="lk-art" viewBox="0 0 210 128" aria-hidden="true">
+      <path class="k-f2 k-ln" d="M3 3L105 72L207 3Z"/>
+      <rect class="k-ac k-ln" x="158" y="14" width="38" height="46" rx="2"/>
+      <rect fill="none" stroke="var(--outline)" stroke-dasharray="3 3" style="stroke-width:1.5" x="163" y="19" width="28" height="36"/>
+      <circle class="k-f2" cx="177" cy="37" r="7"/>
+    </svg>`,
+    trading: `<svg class="lk-art" viewBox="0 0 210 124" aria-hidden="true">
+      <path fill="none" stroke="var(--digit)" style="stroke-width:2;opacity:.55" stroke-linecap="round" d="M92 74V112M112 66V104M132 70V100M152 52V92M172 40V80M192 28V66"/>
+      <path fill="none" stroke="var(--digit)" style="stroke-width:1.5;opacity:.25" d="M80 114H204"/>
+      <rect class="k-down" x="87" y="84" width="10" height="18" rx="2"/>
+      <rect class="k-up" x="107" y="74" width="10" height="20" rx="2"/>
+      <rect class="k-down" x="127" y="78" width="10" height="12" rx="2"/>
+      <rect class="k-up" x="147" y="60" width="10" height="24" rx="2"/>
+      <rect class="k-up" x="167" y="48" width="10" height="22" rx="2"/>
+      <rect class="k-up" x="187" y="34" width="10" height="22" rx="2"/>
+    </svg>`,
+    crypto: `<svg class="lk-art" viewBox="0 0 190 112" aria-hidden="true">
+      <circle class="k-f1 k-ln" cx="136" cy="76" r="26"/>
+      <circle class="k-ac k-ln" cx="156" cy="50" r="32"/>
+      <circle fill="none" class="k-ln" cx="156" cy="50" r="24"/>
+      <path class="k-f2 k-ln" d="M156 34L171 50L156 66L141 50Z"/>
+    </svg>`,
+    finance: `<svg class="lk-art" viewBox="0 0 210 112" aria-hidden="true">
+      <rect class="k-ln" fill="none" style="opacity:.55" x="8" y="8" width="194" height="96" rx="5"/>
+      <circle class="k-f2 k-ln" cx="170" cy="56" r="26"/>
+      <text class="k-ink" x="170" y="66" text-anchor="middle" style="font:700 30px Quicksand,sans-serif">$</text>
+      <circle class="k-f1" cx="26" cy="92" r="5"/>
+      <circle class="k-f1" cx="190" cy="20" r="5"/>
+    </svg>`,
+    maps: `<svg class="lk-art" viewBox="0 0 210 124" aria-hidden="true">
+      <rect class="k-f2" x="70" y="0" width="70" height="124"/>
+      <path class="k-ln" fill="none" style="opacity:.45" d="M70 0V124M140 0V124"/>
+      <path class="k-route" d="M16 104C46 76 68 112 104 80S160 66 182 44"/>
+      <path class="k-ac k-ln" d="M182 62C172 50 172 36 182 36C192 36 192 50 182 62Z"/>
+      <circle class="k-ink" cx="182" cy="46" r="3"/>
+    </svg>`,
+    videos: `<svg class="lk-art" viewBox="0 0 200 130" aria-hidden="true">
+      <path class="k-lt" d="M6 0H23L13 30H-4ZM40 0H57L47 30H30ZM74 0H91L81 30H64ZM108 0H125L115 30H98ZM142 0H159L149 30H132ZM176 0H193L183 30H166Z"/>
+      <path class="k-ln" fill="none" d="M0 30H200"/>
+      <path class="k-ac k-ln" d="M150 56L150 98L184 77Z"/>
+    </svg>`,
+    music: `<svg class="lk-art" viewBox="0 0 160 164" aria-hidden="true">
+      <circle class="k-ln" style="fill:#17142a" cx="80" cy="64" r="48"/>
+      <circle fill="none" stroke="#fff" style="stroke-opacity:.12;stroke-width:1.5" cx="80" cy="64" r="38"/>
+      <circle fill="none" stroke="#fff" style="stroke-opacity:.12;stroke-width:1.5" cx="80" cy="64" r="29"/>
+      <path fill="none" stroke="#fff" stroke-linecap="round" style="stroke-opacity:.22;stroke-width:3" d="M47 44A38 38 0 0 1 69 28"/>
+      <circle class="k-ac k-ln" cx="80" cy="64" r="15"/>
+      <circle class="k-ink" cx="80" cy="64" r="2.6"/>
+    </svg>`,
+    code: `<svg class="lk-art" viewBox="0 0 200 112" aria-hidden="true">
+      <path fill="none" stroke="var(--ui-active)" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:4" d="M20 32L38 46L20 60"/>
+      <rect class="k-ac k-blink" x="112" y="52" width="12" height="4"/>
+    </svg>`,
+    docs: `<svg class="lk-art" viewBox="0 0 170 130" aria-hidden="true">
+      <path class="k-f1 k-ln" d="M138 0L170 32H138Z"/>
+      <path class="k-soft" d="M16 68H152M16 82H152M16 96H110"/>
+    </svg>`,
+    shop: `<svg class="lk-art" viewBox="0 0 160 130" aria-hidden="true">
+      <path class="k-ln" fill="none" style="stroke-width:3" d="M52 0C52 -30 108 -30 108 0"/>
+      <path class="k-ln" fill="none" style="opacity:.5" d="M0 20H160"/>
+    </svg>`,
+    reddit: `<svg class="lk-art" viewBox="0 0 190 110" aria-hidden="true">
+      <path class="k-ln" style="fill:var(--face)" d="M24 108V128L50 108"/>
+      <rect style="fill:var(--face)" x="25" y="104" width="24" height="6"/>
+      <path class="k-ink" d="M158 40L170 24L182 40Z"/>
+      <path class="k-ink" d="M158 52L170 68L182 52Z"/>
+    </svg>`,
+  };
 
   const TYPES = {
     lamp: {
@@ -796,17 +873,43 @@
       removable: true,
       resizable: true,
       className: "widget w-link",
-      data: () => ({ label: "Link", url: "https://example.com", color: "blue" }),
-      variants: LINK_PRESETS.map(([label, url, color]) => ({ label, data: { label, url, color } })).concat([
+      data: () => ({ label: "Link", url: "https://example.com", color: "blue", kind: "custom" }),
+      variants: LINK_PRESETS.map(([label, url, color, kind]) => ({ label, data: { label, url, color, kind } })).concat([
         { label: "Custom link...", data: { ask: true } },
       ]),
       build(el, item) {
-        const d = (item.data = item.data || { label: "Link", url: "https://example.com", color: "blue" });
-        el.classList.add("c-" + (d.color || "blue"));
+        const d = (item.data = item.data || { label: "Link", url: "https://example.com", color: "blue", kind: "custom" });
+        const kind = LINK_ART[d.kind] ? d.kind : "custom";
+        el.classList.add("lk-" + kind, "c-" + (d.color || "blue"));
 
         const a = document.createElement("a");
         a.className = "link-a";
         a.rel = "noopener";
+        if (LINK_ART[kind]) a.insertAdjacentHTML("afterbegin", LINK_ART[kind]);
+
+        let img = null;
+        let letter = null;
+        if (kind === "custom") {
+          const logo = document.createElement("span");
+          logo.className = "lk-logo";
+          img = document.createElement("img");
+          img.alt = "";
+          img.width = 40;
+          img.height = 40;
+          img.hidden = true;
+          letter = document.createElement("b");
+          img.addEventListener("load", () => {
+            img.hidden = false;
+            letter.hidden = true;
+          });
+          img.addEventListener("error", () => {
+            img.hidden = true;
+            letter.hidden = false;
+          });
+          logo.append(img, letter);
+          a.append(logo);
+        }
+
         const name = document.createElement("span");
         name.className = "link-name";
         const host = document.createElement("span");
@@ -815,9 +918,15 @@
 
         function paint() {
           const url = safeUrl(d.url) || "";
+          const h = url ? hostOf(url) : "";
           a.href = url || "#";
+          a.title = url || "";
           name.textContent = d.label || "Link";
-          host.textContent = (url ? hostOf(url) : "no address") + " \u2197";
+          host.textContent = (h || "no address") + " \u2197";
+          if (img) {
+            letter.textContent = (d.label || h || "?").charAt(0).toUpperCase();
+            if (h) img.src = "https://www.google.com/s2/favicons?sz=64&domain=" + encodeURIComponent(h);
+          }
         }
         paint();
 
@@ -1038,7 +1147,7 @@
         alert("That web address doesn't look right.");
         return;
       }
-      payload = { label, url, color: "blue" };
+      payload = { label, url, color: "blue", kind: "custom" };
     }
     const item = {
       id: uid(),

@@ -1184,29 +1184,87 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .edit { right: auto; left: -10px; font-size: .85rem; }
 .pop-head { padding: 10px 12px 4px; font-size: .8rem; font-weight: 700; opacity: .7; }
 
-.w-link {
-  --thick: 6px;
-  width: 196px;
-  padding: 0;
-  border-radius: 8px;
-  color: var(--note-ink);
-}
-.w-link::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 11px;
-  border-radius: 6px 0 0 6px;
-  background: color-mix(in srgb, var(--face), #000 20%);
-  pointer-events: none;
-}
-.link-a { display: block; padding: 14px 16px 13px 26px; border-radius: 8px; color: inherit; text-decoration: none; cursor: pointer; }
+.c-paper { --face: var(--card); }
+.c-ink { --face: var(--screen-bg); --note-ink: var(--digit); }
+
+.w-link { --thick: 6px; padding: 0; border-radius: 10px; color: var(--note-ink); }
+.lk-news { width: 230px; height: 138px; }
+.lk-mail { width: 210px; height: 128px; }
+.lk-trading { width: 210px; height: 124px; }
+.lk-crypto { width: 190px; height: 112px; }
+.lk-finance { width: 210px; height: 112px; }
+.lk-maps { width: 210px; height: 124px; }
+.lk-videos { width: 200px; height: 130px; }
+.lk-music { width: 160px; height: 164px; }
+.lk-code { width: 200px; height: 112px; }
+.lk-docs { width: 170px; height: 130px; }
+.lk-shop { width: 160px; height: 130px; }
+.lk-reddit { width: 190px; height: 110px; }
+.lk-custom { width: 148px; height: 156px; }
+
+.link-a { position: absolute; inset: 0; display: block; border-radius: inherit; color: inherit; text-decoration: none; cursor: pointer; }
 .link-a:focus-visible { outline: 3px solid var(--outline); outline-offset: -3px; }
-.link-name { display: block; font-family: "Patrick Hand", cursive; font-size: 2rem; line-height: 1; }
-.link-host { display: block; margin-top: 7px; overflow: hidden; font-size: .78rem; font-weight: 600; white-space: nowrap; text-overflow: ellipsis; }
+.lk-art { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.k-ln { stroke: var(--outline); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.k-f1 { fill: color-mix(in srgb, var(--face), #000 16%); }
+.k-f2 { fill: color-mix(in srgb, var(--face), #fff 38%); }
+.k-ac { fill: var(--ui-active); }
+.k-ink { fill: var(--note-ink); }
+.k-lt { fill: #f4efe6; stroke: var(--outline); stroke-width: 2; stroke-linejoin: round; }
+.k-up { fill: var(--n-mint); }
+.k-down { fill: var(--n-pink); }
+.k-soft { fill: none; stroke: var(--note-ink); stroke-width: 3; stroke-linecap: round; opacity: .38; }
+.k-route { fill: none; stroke: var(--ui-active); stroke-width: 3.5; stroke-dasharray: 2 8; stroke-linecap: round; }
+.k-blink { animation: blink 1s steps(1) infinite; }
+
+.link-name, .link-host { position: absolute; display: block; margin: 0; }
+.link-name { font-family: "Patrick Hand", cursive; font-size: 1.9rem; line-height: 1; }
+.link-host { font-size: .74rem; font-weight: 600; white-space: nowrap; }
 .link-a:hover .link-host { text-decoration: underline; }
+
+.lk-news .link-name { left: 16px; top: 9px; font: 700 2.2rem/1 Georgia, "Times New Roman", serif; letter-spacing: -.01em; }
+.lk-news .link-host { right: 16px; top: 54px; }
+.lk-mail .link-name { left: 18px; top: 78px; }
+.lk-mail .link-host { left: 18px; top: 108px; }
+.lk-trading .link-name, .lk-crypto .link-name { left: 16px; top: 12px; }
+.lk-trading .link-host, .lk-crypto .link-host { left: 16px; bottom: 12px; }
+.lk-finance .link-name { left: 20px; top: 22px; }
+.lk-finance .link-host { left: 20px; bottom: 20px; }
+.lk-maps .link-name { left: 16px; top: 10px; }
+.lk-maps .link-host { left: 16px; top: 44px; }
+.lk-videos .link-name { left: 16px; top: 42px; }
+.lk-videos .link-host { left: 16px; top: 82px; }
+.lk-music .link-name { left: 14px; top: 114px; }
+.lk-music .link-host { left: 14px; top: 144px; }
+.lk-code .link-name { left: 48px; top: 28px; font-family: ui-monospace, Consolas, "Courier New", monospace; font-size: 1.5rem; font-weight: 700; }
+.lk-code .link-host { left: 20px; top: 78px; }
+.lk-docs .link-name { left: 16px; top: 12px; }
+.lk-docs .link-host { left: 16px; top: 46px; }
+.lk-shop .link-name, .lk-shop .link-host { left: 0; right: 0; text-align: center; }
+.lk-shop .link-name { top: 40px; }
+.lk-shop .link-host { top: 84px; }
+.lk-reddit .link-name { left: 16px; top: 18px; }
+.lk-reddit .link-host { left: 16px; top: 56px; }
+
+.lk-logo {
+  position: absolute;
+  left: 50%;
+  top: 18px;
+  width: 68px;
+  height: 68px;
+  margin-left: -34px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--outline);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 4px 0 #b9b5c6, 0 9px 10px var(--shadow);
+}
+.lk-logo img { width: 40px; height: 40px; object-fit: contain; }
+.lk-logo b { font-family: "Patrick Hand", cursive; font-size: 2.1rem; color: #3c3552; }
+.lk-custom .link-name, .lk-custom .link-host { left: 0; right: 0; text-align: center; }
+.lk-custom .link-name { top: 100px; }
+.lk-custom .link-host { top: 130px; }
 
 @media (max-width: 1000px) {
   .hint { display: none; }
@@ -1216,6 +1274,5 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .clock-hm { font-size: 3.2rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; 
-  }
+  * { transition: none !important; animation: none !important; }
 }
