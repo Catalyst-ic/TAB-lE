@@ -43,18 +43,22 @@
     theme: "light",
     wood: DEFAULT_WOOD,
     engine: "google",
-    zTop: 10,
+    zTop: 20,
     items: [
-      { id: uid(), type: "lamp", x: 0.02, y: 0, z: 1, rot: 0, scale: 1, data: { on: true } },
-      { id: uid(), type: "note", x: 0.33, y: 0.09, z: 2, rot: -6, scale: 1, data: { text: "Small steps\nBig dreams \u263a", color: "pink" } },
-      { id: uid(), type: "calendar", x: 0.58, y: 0, z: 3, rot: 0, scale: 1 },
-      { id: uid(), type: "clock", x: 0.8, y: 0.05, z: 4, rot: -8, scale: 1 },
-      { id: uid(), type: "note", x: 0.97, y: 0.3, z: 5, rot: 8, scale: 1, data: { text: "Better\nDays\nAhead \u2661", color: "blue" } },
-      { id: uid(), type: "notebook", x: 0.03, y: 0.74, z: 6, rot: -4, scale: 1, data: { text: "", open: false } },
+      { id: uid(), type: "lamp", x: 0.039, y: 0.48, z: 1, rot: 0, scale: 0.75, data: { on: true } },
+      { id: uid(), type: "note", x: 0.157, y: 0.27, z: 2, rot: -8, scale: 1.1, data: { text: "LETS GO\nHACKCUB!!", color: "pink" } },
       {
-        id: uid(), type: "todo", x: 0.84, y: 0.95, z: 7, rot: -5, scale: 1,
-        data: { tasks: [{ t: "Study", d: false }, { t: "Create", d: false }, { t: "Grow", d: false }, { t: "Be happy", d: false }] },
+        id: uid(), type: "todo", x: 0.293, y: 0.04, z: 3, rot: 12, scale: 0.9,
+        data: { tasks: [{ t: "ship", d: false }, { t: "super star", d: false }] },
       },
+      { id: uid(), type: "timer", x: 0.75, y: 0.049, z: 4, rot: 0, scale: 1.07, data: { mins: 5, left: 300, endAt: null } },
+      { id: uid(), type: "note", x: 0.85, y: 0.36, z: 5, rot: 10, scale: 1, data: { text: "What is the\npurpose of life\nif not super\nstar??", color: "blue" } },
+      { id: uid(), type: "search", x: 0.495, y: 0.473, z: 6, rot: 0, scale: 1.43 },
+      { id: uid(), type: "notebook", x: 0.211, y: 0.858, z: 7, rot: 15, scale: 1, data: { text: "", open: false } },
+      { id: uid(), type: "link", x: 0.032, y: 0.82, z: 8, rot: 0, scale: 1, data: { label: "News", url: "https://news.google.com", color: "lilac" } },
+      { id: uid(), type: "link", x: 0.499, y: 0.909, z: 9, rot: 0, scale: 0.88, data: { label: "Mail", url: "https://mail.google.com", color: "pink" } },
+      { id: uid(), type: "clock", x: 0.727, y: 0.9, z: 10, rot: -8, scale: 1.1 },
+      { id: uid(), type: "calendar", x: 0.976, y: 0.808, z: 11, rot: 0, scale: 1.05 },
     ],
   });
 
@@ -137,6 +141,108 @@
     if (code >= 95) return ["\u26c8\ufe0f", "Storm"];
     return ["\u2601\ufe0f", "Cloudy"];
   }
+
+  const SCREEN_KEY = "table-screen-v1";
+  const screenLog = (() => {
+    try {
+      return JSON.parse(localStorage.getItem(SCREEN_KEY)) || {};
+    } catch {
+      return {};
+    }
+  })();
+  const screenEls = new Set();
+  let sinceSave = 0;
+
+  const dayKey = (d) =>
+    d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+
+  function fmtTime(s) {
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    return h ? h + "h " + m + "m" : m + "m";
+  }
+
+  function saveScreen() {
+    const keys = Object.keys(screenLog).sort();
+    while (keys.length > 30) delete screenLog[keys.shift()];
+    try {
+      localStorage.setItem(SCREEN_KEY, JSON.stringify(screenLog));
+    } catch {}
+  }
+
+  function paintScreen(el) {
+    const now = new Date();
+    const vals = [];
+    const names = [];
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - i);
+      vals.push(screenLog[dayKey(d)] || 0);
+      names.push(d.toLocaleDateString("en-US", { weekday: "short" }));
+    }
+    el.querySelector(".mon-total").textContent = fmtTime(vals[6]);
+    el.querySelector(".mon-sub").textContent = vals[5]
+      ? "Yesterday you spent " + fmtTime(vals[5]) + " here."
+      : "Counted while this tab is open and visible.";
+    const wk = el.querySelector(".mon-week");
+    if (!wk.children.length) for (let i = 0; i < 7; i++) wk.appendChild(document.createElement("i"));
+    const top = Math.max(...vals, 3600);
+    [...wk.children].forEach((b, i) => {
+      b.style.height = Math.max(4, Math.round((vals[i] / top) * 44)) + "px";
+      b.title = names[i] + " " + fmtTime(vals[i]);
+      b.classList.toggle("now", i === 6);
+    });
+  }
+
+  setInterval(() => {
+    if (document.visibilityState === "visible") {
+      const k = dayKey(new Date());
+      screenLog[k] = (screenLog[k] || 0) + 1;
+      if (++sinceSave >= 15) {
+        sinceSave = 0;
+        saveScreen();
+      }
+    }
+    screenEls.forEach((el) => {
+      if (!el.isConnected) screenEls.delete(el);
+      else paintScreen(el);
+    });
+  }, 1000);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") saveScreen();
+  });
+  window.addEventListener("pagehide", saveScreen);
+
+  function safeUrl(raw) {
+    try {
+      const u = new URL(/^https?:\/\//i.test(raw) ? raw : "https://" + raw);
+      return u.protocol === "http:" || u.protocol === "https:" ? u.href : null;
+    } catch {
+      return null;
+    }
+  }
+
+  const hostOf = (url) => {
+    try {
+      return new URL(url).hostname.replace(/^www\./, "");
+    } catch {
+      return url;
+    }
+  };
+
+  const LINK_PRESETS = [
+    ["News", "https://news.google.com", "lilac"],
+    ["Trading", "https://www.tradingview.com", "mint"],
+    ["Crypto", "https://www.coingecko.com", "yellow"],
+    ["Finance", "https://finance.yahoo.com", "blue"],
+    ["Mail", "https://mail.google.com", "pink"],
+    ["Maps", "https://maps.google.com", "mint"],
+    ["Videos", "https://www.youtube.com", "pink"],
+    ["Music", "https://open.spotify.com", "lilac"],
+    ["Code", "https://github.com", "blue"],
+    ["Docs", "https://docs.google.com", "yellow"],
+    ["Shopping", "https://www.amazon.com", "mint"],
+    ["Reddit", "https://www.reddit.com", "pink"],
+  ];
 
   const TYPES = {
     lamp: {
@@ -437,17 +543,18 @@
       resizable: true,
       className: "monitor",
       build(el) {
-        const now = new Date();
-        const h = now.getHours();
-        const greet = h < 5 ? "Still up" : h < 12 ? "Good morning" : h < 17 ? "Good afternoon" : h < 21 ? "Good evening" : "Good night";
-        const day = now.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
-
         el.innerHTML = `
           <div class="mon-stand"><span class="mon-neck"></span><span class="mon-foot"></span></div>
           <div class="mon-body">
             <div class="mon-glass">
-              <div class="mon-time"><b data-h>12</b><i>:</i><b data-m>00</b></div>
-              <p class="mon-sub">${greet}. ${day}.</p>
+              <div class="mon-stat">
+                <div>
+                  <p class="mon-label">Time on this desk today</p>
+                  <b class="mon-total">0m</b>
+                </div>
+                <div class="mon-week" aria-label="Last 7 days"></div>
+              </div>
+              <p class="mon-sub"></p>
               <form class="mon-form">
                 <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                 <input type="text" class="search-input" aria-label="Search" autocomplete="off" spellcheck="false">
@@ -464,7 +571,8 @@
           const q = input.value.trim();
           if (q) location.href = searchUrl(q);
         });
-        tickClocks();
+        screenEls.add(el);
+        paintScreen(el);
       },
     },
 
@@ -680,6 +788,63 @@
         fetchWx();
       },
     },
+
+    link: {
+      label: "Link",
+      menuHead: "Links",
+      addable: true,
+      removable: true,
+      resizable: true,
+      className: "widget w-link",
+      data: () => ({ label: "Link", url: "https://example.com", color: "blue" }),
+      variants: LINK_PRESETS.map(([label, url, color]) => ({ label, data: { label, url, color } })).concat([
+        { label: "Custom link...", data: { ask: true } },
+      ]),
+      build(el, item) {
+        const d = (item.data = item.data || { label: "Link", url: "https://example.com", color: "blue" });
+        el.classList.add("c-" + (d.color || "blue"));
+
+        const a = document.createElement("a");
+        a.className = "link-a";
+        a.rel = "noopener";
+        const name = document.createElement("span");
+        name.className = "link-name";
+        const host = document.createElement("span");
+        host.className = "link-host";
+        a.append(name, host);
+
+        function paint() {
+          const url = safeUrl(d.url) || "";
+          a.href = url || "#";
+          name.textContent = d.label || "Link";
+          host.textContent = (url ? hostOf(url) : "no address") + " \u2197";
+        }
+        paint();
+
+        const edit = document.createElement("button");
+        edit.type = "button";
+        edit.className = "edit";
+        edit.textContent = "\u270e";
+        edit.setAttribute("aria-label", "Edit link");
+        edit.addEventListener("click", () => {
+          const label = prompt("Name for this link", d.label);
+          if (label === null) return;
+          const raw = prompt("Web address", d.url);
+          if (raw === null) return;
+          const url = safeUrl(raw.trim());
+          if (!url) {
+            alert("That web address doesn't look right.");
+            return;
+          }
+          d.label = label.trim() || d.label;
+          d.url = url;
+          paint();
+          save();
+        });
+
+        el.append(a, edit);
+      },
+    },
   };
 
   const elById = new Map();
@@ -864,6 +1029,17 @@
   }
 
   function addItem(type, data) {
+    let payload = data ? JSON.parse(JSON.stringify(data)) : null;
+    if (payload && payload.ask) {
+      const label = (prompt("Name for this link") || "").trim();
+      if (!label) return;
+      const url = safeUrl((prompt("Web address, for example example.com") || "").trim());
+      if (!url) {
+        alert("That web address doesn't look right.");
+        return;
+      }
+      payload = { label, url, color: "blue" };
+    }
     const item = {
       id: uid(),
       type,
@@ -873,7 +1049,7 @@
       rot: 0,
       scale: 1,
     };
-    if (data) item.data = JSON.parse(JSON.stringify(data));
+    if (payload) item.data = payload;
     else if (TYPES[type].data) item.data = TYPES[type].data();
     state.items.push(item);
     render(item);
@@ -898,6 +1074,7 @@
   }
 
   let drag = null;
+  let suppressClick = false;
 
   itemsEl.addEventListener("pointerdown", (e) => {
     if (e.button !== 0) return;
@@ -910,43 +1087,42 @@
     item.z = ++state.zTop;
     el.style.zIndex = item.z;
 
+    const base = { el, item, px: e.clientX, py: e.clientY, pid: e.pointerId, active: false };
     if (e.target.closest(".resize")) {
       const r = el.getBoundingClientRect();
       const cx = r.left + r.width / 2;
       const cy = r.top + r.height / 2;
       drag = {
+        ...base,
         mode: "resize",
-        el,
-        item,
         cx,
         cy,
         r0: Math.hypot(e.clientX - cx, e.clientY - cy) || 1,
         s0: item.scale || 1,
       };
-      el.classList.add("resizing");
     } else {
-      drag = {
-        mode: "move",
-        el,
-        item,
-        sx: e.clientX,
-        sy: e.clientY,
-        left: el.offsetLeft,
-        top: el.offsetTop,
-      };
-      el.classList.add("dragging");
+      drag = { ...base, mode: "move", left: el.offsetLeft, top: el.offsetTop };
     }
-
-    el.setPointerCapture(e.pointerId);
-    e.preventDefault();
+    if (!e.target.closest("a")) e.preventDefault();
   });
 
   itemsEl.addEventListener("pointermove", (e) => {
     if (!drag) return;
+    if (!(e.buttons & 1)) {
+      endDrag();
+      return;
+    }
     const { el, item } = drag;
 
+    if (!drag.active) {
+      if (Math.hypot(e.clientX - drag.px, e.clientY - drag.py) < 4) return;
+      drag.active = true;
+      el.classList.add(drag.mode === "move" ? "dragging" : "resizing");
+      el.setPointerCapture(drag.pid);
+    }
+
     if (drag.mode === "move") {
-      setPos(el, item, drag.left + (e.clientX - drag.sx), drag.top + (e.clientY - drag.sy));
+      setPos(el, item, drag.left + (e.clientX - drag.px), drag.top + (e.clientY - drag.py));
     } else {
       const r = Math.hypot(e.clientX - drag.cx, e.clientY - drag.cy);
       item.scale = clamp((drag.s0 * r) / drag.r0, MIN_SCALE, Math.max(MIN_SCALE, maxScaleFor(el, item)));
@@ -960,12 +1136,26 @@
 
   function endDrag() {
     if (!drag) return;
-    drag.el.classList.remove("dragging", "resizing");
+    if (drag.active) {
+      drag.el.classList.remove("dragging", "resizing");
+      suppressClick = true;
+      setTimeout(() => (suppressClick = false), 0);
+    }
     drag = null;
     save();
   }
   itemsEl.addEventListener("pointerup", endDrag);
   itemsEl.addEventListener("pointercancel", endDrag);
+  itemsEl.addEventListener(
+    "click",
+    (e) => {
+      if (suppressClick) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    },
+    true
+  );
 
   itemsEl.addEventListener("contextmenu", (e) => {
     const el = e.target.closest(".item");
@@ -1113,6 +1303,12 @@
   Object.entries(TYPES)
     .filter(([, t]) => t.addable)
     .forEach(([key, t]) => {
+      if (t.menuHead) {
+        const h = document.createElement("li");
+        h.className = "pop-head";
+        h.textContent = t.menuHead;
+        addMenu.appendChild(h);
+      }
       (t.variants || [{ label: t.label }]).forEach((v) => {
         const li = document.createElement("li");
         const b = document.createElement("button");
