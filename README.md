@@ -29,3 +29,5 @@ TAB-LE
     You can also change the theme of the page.
 
   Have fun navigating through the table and customizing it to your liking.  
+  <img width="1860" height="984" alt="image" src="https://github.com/user-attachments/assets/61b76110-9561-437a-9e78-bb7ca25ce441" />
+
