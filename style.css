@@ -1,187 +1,13 @@
-:root {
-  --wall-h: 56px;
-  --floor-h: 96px;
-  --pool-core: rgba(255, 166, 80, 1);
-  --pool-mid: rgba(255, 136, 60, .56);
-  --pool-out: rgba(255, 110, 50, .2);
-  --beam-color: rgba(255, 208, 132, .78);
-}
-
 :root[data-theme="light"] {
-  --outline: #33304f;
-  --wall: #c9bca9;
-  --wall-line: #6e5d4b;
-  --poster-b: 1;
-  --window-filter: none;
-  --floor: #8a674c;
-  --rug: #3d5e98;
-  --rug-pat: #a9c4ee;
-  --leg: #35446a;
-  --chair-c: #36446b;
-  --chair-o: 1;
-  --drop: rgba(60, 36, 16, .4);
-  --grain-dark: .85;
-  --grain-light: .8;
-  --vignette: rgba(120, 70, 20, .2);
-  --sun-opacity: 1;
-  --sun-shade: rgba(120, 66, 18, .2);
-  --amb1: rgba(255, 240, 200, .5);
-  --amb2: rgba(110, 140, 220, .14);
-  --ui-bg: rgba(255, 247, 234, .9);
-  --ui-ink: #4b3b52;
-  --ui-active: #f2b66a;
-  --ui-active-ink: #3b2a14;
-  --card: #f8f2e6;
-  --ink: #3c3552;
-  --ink-soft: #8a7f9a;
-  --shadow: rgba(116, 64, 20, .4);
-  --clock-body: #efe7d8;
-  --screen-bg: #1e2339;
-  --digit: #f4f7ff;
-  --digit-glow: 0 0 3px rgba(255, 255, 255, .5);
-  --today-bg: #f6c27a;
-  --today-ink: #3b2a14;
-  --today-glow: none;
-  --n-pink: #f6a9c1;
-  --n-blue: #8fb8ee;
-  --n-yellow: #f7e37e;
-  --n-mint: #a9dcb5;
-  --n-lilac: #c5aaee;
   --note-ink: #3f3a66;
-  --cal-base: #2d3452;
-  --cal-line: rgba(70, 60, 90, .28);
-  --lamp-shell: #6f88b8;
-  --lamp-shell-hi: #9db3da;
-  --lamp-inner-off: #eef2fb;
-  --lamp-base: #5c74a3;
-  --bulb: #fff6d6;
-  --nb-cover: #27345e;
-  --nb-cat: #f3b66a;
-  --leaf1: #4fa23f;
-  --leaf2: #6db94c;
-  --leaf3: #3b8c3c;
-  --leaf-line: #1f4d2b;
-  --pot: #f3ebde;
-  --screen-glow: transparent;
-  --glow-opacity: 0;
 }
 
 :root[data-theme="night"] {
-  --outline: #0e0a1f;
-  --wall: #3b2f55;
-  --wall-line: #1b1430;
-  --poster-b: .45;
-  --window-filter: hue-rotate(150deg) brightness(.38) saturate(.9);
-  --floor: #2c2139;
-  --rug: #2b3070;
-  --rug-pat: #5560b8;
-  --leg: #1b1630;
-  --chair-c: #26224a;
-  --chair-o: 0;
-  --drop: rgba(0, 0, 10, .6);
-  --grain-dark: 1;
-  --grain-light: .4;
-  --vignette: rgba(14, 4, 30, .75);
-  --sun-opacity: 0;
-  --sun-shade: transparent;
-  --amb1: rgba(150, 110, 255, .2);
-  --amb2: rgba(60, 90, 200, .22);
-  --ui-bg: rgba(36, 24, 62, .9);
-  --ui-ink: #f1dcee;
-  --ui-active: #ffc27a;
-  --ui-active-ink: #2a1530;
-  --card: #3a3358;
-  --ink: #efe6ff;
-  --ink-soft: #a99cc8;
-  --shadow: rgba(6, 0, 16, .62);
-  --clock-body: #2e2c58;
-  --screen-bg: #14122b;
-  --digit: #dcc6ff;
-  --digit-glow: 0 0 6px #b48cff, 0 0 18px rgba(170, 120, 255, .8);
-  --today-bg: #ffc27a;
-  --today-ink: #2a1530;
-  --today-glow: 0 0 10px rgba(255, 194, 122, .9), 0 0 22px rgba(255, 150, 80, .55);
-  --n-pink: #c47ca8;
-  --n-blue: #7480cc;
-  --n-yellow: #d2b45c;
-  --n-mint: #6fae8e;
-  --n-lilac: #8c76c8;
   --note-ink: #2b2147;
-  --cal-base: #1c1738;
-  --cal-line: rgba(240, 220, 255, .2);
-  --lamp-shell: #5d4d8c;
-  --lamp-shell-hi: #8c78c4;
-  --lamp-inner-off: #9a86c8;
-  --lamp-base: #4a3c78;
-  --bulb: #fff0bf;
-  --nb-cover: #3a3152;
-  --nb-cat: #ee8c6c;
-  --leaf1: #2f6a3f;
-  --leaf2: #3f7d45;
-  --leaf3: #275b39;
-  --leaf-line: #0e2a1f;
-  --pot: #cdbfdb;
-  --screen-glow: rgba(120, 170, 255, .85);
-  --glow-opacity: .8;
 }
 
 :root[data-theme="dark"] {
-  --outline: #07040f;
-  --wall: #241c38;
-  --wall-line: #110b20;
-  --poster-b: .3;
-  --window-filter: hue-rotate(150deg) brightness(.25);
-  --floor: #1a1226;
-  --rug: #1c1f50;
-  --rug-pat: #3a4090;
-  --leg: #120e22;
-  --chair-c: #1a1738;
-  --chair-o: 0;
-  --drop: rgba(0, 0, 0, .7);
-  --grain-dark: 1;
-  --grain-light: .3;
-  --vignette: rgba(8, 2, 20, .72);
-  --sun-opacity: 0;
-  --sun-shade: transparent;
-  --amb1: rgba(190, 90, 255, .22);
-  --amb2: rgba(80, 70, 220, .25);
-  --ui-bg: rgba(22, 15, 42, .92);
-  --ui-ink: #e3d6ff;
-  --ui-active: #c9a0ff;
-  --ui-active-ink: #170f30;
-  --card: #2c2548;
-  --ink: #e3d6ff;
-  --ink-soft: #9d8ccc;
-  --shadow: rgba(2, 0, 12, .74);
-  --clock-body: #3a2f66;
-  --screen-bg: #0d0a1f;
-  --digit: #ff9fe6;
-  --digit-glow: 0 0 6px #ff5fd8, 0 0 20px rgba(255, 90, 216, .8), 0 0 44px rgba(150, 90, 255, .5);
-  --today-bg: #ff7ad9;
-  --today-ink: #1a0b24;
-  --today-glow: 0 0 10px rgba(255, 122, 217, .95), 0 0 26px rgba(190, 100, 255, .7);
-  --n-pink: #8f5a86;
-  --n-blue: #505ca8;
-  --n-yellow: #a38e4c;
-  --n-mint: #50866f;
-  --n-lilac: #6a58a6;
   --note-ink: #f0e8ff;
-  --cal-base: #130f28;
-  --cal-line: rgba(240, 220, 255, .16);
-  --lamp-shell: #433871;
-  --lamp-shell-hi: #5f5290;
-  --lamp-inner-off: #4f4480;
-  --lamp-base: #382e62;
-  --bulb: #5f5490;
-  --nb-cover: #2a2342;
-  --nb-cat: #b8707a;
-  --leaf1: #234c37;
-  --leaf2: #2d5b3d;
-  --leaf3: #1d4131;
-  --leaf-line: #08170f;
-  --pot: #5d5078;
-  --screen-glow: rgba(170, 110, 255, .95);
-  --glow-opacity: 1;
 }
 
 * {
@@ -193,11 +19,31 @@ html, body {
   height: 100%;
   overflow: hidden;
   font-family: "Quicksand", system-ui, sans-serif;
-  color: var(--ink);
+  color: #3c3552;
+}
+
+html:where([data-theme="night"]),
+:where(:root[data-theme="night"]) body {
+  color: #efe6ff;
+}
+
+html:where([data-theme="dark"]),
+:where(:root[data-theme="dark"]) body {
+  color: #e3d6ff;
 }
 
 body {
-  background: var(--floor);
+  background: #8a674c;
+  transition: background .7s ease;
+}
+
+:where(:root[data-theme="night"]) body {
+  background: #2c2139;
+  transition: background .7s ease;
+}
+
+:where(:root[data-theme="dark"]) body {
+  background: #1a1226;
   transition: background .7s ease;
 }
 
@@ -209,7 +55,7 @@ body::after {
   pointer-events: none;
   mix-blend-mode: overlay;
   opacity: .14;
-  background-image: repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(0, 0, 0, 0.018) 4px);
+  background-image: repeating-linear-gradient(to top, transparent 0, transparent 3px, rgba(0, 0, 0, .018) 4px);
 }
 
 button {
@@ -219,7 +65,17 @@ button {
 }
 
 :focus-visible {
-  outline: 3px solid var(--ui-active);
+  outline: 3px solid #f2b66a;
+  outline-offset: 2px;
+}
+
+:where(:root[data-theme="night"]) :focus-visible {
+  outline: 3px solid #ffc27a;
+  outline-offset: 2px;
+}
+
+:where(:root[data-theme="dark"]) :focus-visible {
+  outline: 3px solid #c9a0ff;
   outline-offset: 2px;
 }
 
@@ -232,12 +88,22 @@ button {
 
 .wall {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: var(--wall-h);
-  background: var(--wall);
-  border-bottom: 6px solid var(--wall-line);
+  inset: 0 0 auto;
+  height: 56px;
+  background: #c9bca9;
+  border-bottom: 6px solid #6e5d4b;
+  transition: background .7s ease, border-color .7s ease;
+}
+
+:where(:root[data-theme="night"]) .wall {
+  background: #3b2f55;
+  border-bottom: 6px solid #1b1430;
+  transition: background .7s ease, border-color .7s ease;
+}
+
+:where(:root[data-theme="dark"]) .wall {
+  background: #241c38;
+  border-bottom: 6px solid #110b20;
   transition: background .7s ease, border-color .7s ease;
 }
 
@@ -247,20 +113,35 @@ button {
   height: 58px;
   border: 4px solid #f4efe6;
   box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
-  filter: brightness(var(--poster-b));
+  filter: brightness(1);
+  transition: filter .7s ease;
+}
+
+:where(:root[data-theme="night"]) .poster {
+  filter: brightness(.45);
+  transition: filter .7s ease;
+}
+
+:where(:root[data-theme="dark"]) .poster {
+  filter: brightness(.3);
   transition: filter .7s ease;
 }
 
 .p1 {
   left: 22%;
   width: 12%;
-  background:     linear-gradient(90deg, transparent 0 8%, #2a2348 8% 14%, transparent 14% 20%, #2a2348 20% 30%, transparent 30% 38%, #2a2348 38% 45%, transparent 45% 58%, #2a2348 58% 66%, transparent 66%) bottom / 100% 36% no-repeat,     linear-gradient(180deg, #f7a27c 0%, #c9739a 50%, #5b4a96 100%);
+  background:
+    linear-gradient(90deg, transparent 0 8%, #2a2348 8% 14%, transparent 14% 20%, #2a2348 20% 30%, transparent 30% 38%, #2a2348 38% 45%, transparent 45% 58%, #2a2348 58% 66%, transparent 66%) bottom / 100% 36% no-repeat,
+    linear-gradient(180deg, #f7a27c, #c9739a 50%, #5b4a96 100%);
 }
 
 .p2 {
   left: 37%;
   width: 7.5%;
-  background: radial-gradient(ellipse 30% 14% at 35% 55%, #fff 0 70%, transparent 72%), radial-gradient(ellipse 26% 12% at 70% 35%, #fff 0 70%, transparent 72%),     linear-gradient(180deg, #7fbcf0, #d6eefc);
+  background:
+    radial-gradient(ellipse 30% 14% at 35% 55%, #fff 0 70%, transparent 72%),
+    radial-gradient(ellipse 26% 12% at 70% 35%, #fff 0 70%, transparent 72%),
+    linear-gradient(180deg, #7fbcf0, #d6eefc);
 }
 
 .p3 {
@@ -277,8 +158,23 @@ button {
   height: 66px;
   border: 6px solid #ddd6ca;
   border-bottom: 0;
-  background: radial-gradient(circle at 18% 78%, #3f8a3c 0 22px, transparent 23px), radial-gradient(circle at 42% 90%, #4f9c46 0 28px, transparent 29px), radial-gradient(circle at 70% 82%, #3f8a3c 0 24px, transparent 25px), radial-gradient(circle at 92% 92%, #5aa84c 0 26px, transparent 27px),     linear-gradient(180deg, #cfeaff, #a7d97e 70%, #5da24a);
-  filter: var(--window-filter);
+  background:
+    radial-gradient(circle at 18% 78%, #3f8a3c 0 22px, transparent 23px),
+    radial-gradient(circle at 42% 90%, #4f9c46 0 28px, transparent 29px),
+    radial-gradient(circle at 70% 82%, #3f8a3c 0 24px, transparent 25px),
+    radial-gradient(circle at 92% 92%, #5aa84c 0 26px, transparent 27px),
+    linear-gradient(180deg, #cfeaff, #a7d97e 70%, #5da24a);
+  filter: none;
+  transition: filter .7s ease;
+}
+
+:where(:root[data-theme="night"]) .window {
+  filter: hue-rotate(150deg) brightness(.38) saturate(.9);
+  transition: filter .7s ease;
+}
+
+:where(:root[data-theme="dark"]) .window {
+  filter: hue-rotate(150deg) brightness(.25);
   transition: filter .7s ease;
 }
 
@@ -295,32 +191,58 @@ button {
 
 .floor {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: var(--floor-h);
-  background: repeating-linear-gradient(90deg, transparent 0 150px, rgba(0, 0, 0, .2) 150px 152px),var(--floor);
+  inset: auto 0 0;
+  height: 96px;
+  background: repeating-linear-gradient(90deg, transparent 0 150px, rgba(0, 0, 0, .2) 150px 152px), #8a674c;
+  transition: background-color .7s ease;
+}
+
+:where(:root[data-theme="night"]) .floor {
+  background: repeating-linear-gradient(90deg, transparent 0 150px, rgba(0, 0, 0, .2) 150px 152px), #2c2139;
+  transition: background-color .7s ease;
+}
+
+:where(:root[data-theme="dark"]) .floor {
+  background: repeating-linear-gradient(90deg, transparent 0 150px, rgba(0, 0, 0, .2) 150px 152px), #1a1226;
   transition: background-color .7s ease;
 }
 
 .rug {
   position: absolute;
-  left: 9%;
-  right: 9%;
-  top: 14px;
-  bottom: 0;
-  border: 3px solid var(--outline);
+  inset: 14px 9% 0;
+  border: 3px solid #33304f;
   border-bottom: 0;
-  background:repeating-linear-gradient(60deg, transparent 0 22px, var(--rug-pat) 22px 25px),repeating-linear-gradient(-60deg, transparent 0 22px, var(--rug-pat) 22px 25px),var(--rug);
+  background:
+    repeating-linear-gradient(60deg, transparent 0 22px, #a9c4ee 22px 25px),
+    repeating-linear-gradient(-60deg, transparent 0 22px, #a9c4ee 22px 25px),
+    #3d5e98;
+  transition: background-color .7s ease;
+}
+
+:where(:root[data-theme="night"]) .rug {
+  border: 3px solid #0e0a1f;
+  border-bottom: 0;
+  background:
+    repeating-linear-gradient(60deg, transparent 0 22px, #5560b8 22px 25px),
+    repeating-linear-gradient(-60deg, transparent 0 22px, #5560b8 22px 25px),
+    #2b3070;
+  transition: background-color .7s ease;
+}
+
+:where(:root[data-theme="dark"]) .rug {
+  border: 3px solid #07040f;
+  border-bottom: 0;
+  background:
+    repeating-linear-gradient(60deg, transparent 0 22px, #3a4090 22px 25px),
+    repeating-linear-gradient(-60deg, transparent 0 22px, #3a4090 22px 25px),
+    #1c1f50;
   transition: background-color .7s ease;
 }
 
 .rug::before {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  top: -12px;
+  inset: -12px 0 auto;
   height: 9px;
   background: repeating-linear-gradient(90deg, #efe6d2 0 5px, transparent 5px 12px);
 }
@@ -332,10 +254,26 @@ button {
   width: 300px;
   height: 120px;
   transform: translateX(-50%);
-  border: 3px solid var(--outline);
+  border: 3px solid #33304f;
   border-radius: 56px 56px 0 0;
-  background: var(--chair-c);
-  opacity: var(--chair-o);
+  background: #36446b;
+  opacity: 1;
+  transition: opacity .7s ease;
+}
+
+:where(:root[data-theme="night"]) .chair {
+  border: 3px solid #0e0a1f;
+  border-radius: 56px 56px 0 0;
+  background: #26224a;
+  opacity: 0;
+  transition: opacity .7s ease;
+}
+
+:where(:root[data-theme="dark"]) .chair {
+  border: 3px solid #07040f;
+  border-radius: 56px 56px 0 0;
+  background: #1a1738;
+  opacity: 0;
   transition: opacity .7s ease;
 }
 
@@ -345,7 +283,21 @@ button {
   top: 10px;
   width: 26px;
   height: 120px;
-  border: 3px solid var(--outline);
+  border: 3px solid #33304f;
+  border-radius: 12px;
+  background: #d9a55f;
+}
+
+:where(:root[data-theme="night"]) .chair::before,
+:where(:root[data-theme="night"]) .chair::after {
+  border: 3px solid #0e0a1f;
+  border-radius: 12px;
+  background: #d9a55f;
+}
+
+:where(:root[data-theme="dark"]) .chair::before,
+:where(:root[data-theme="dark"]) .chair::after {
+  border: 3px solid #07040f;
   border-radius: 12px;
   background: #d9a55f;
 }
@@ -363,8 +315,20 @@ button {
   top: 0;
   width: 72px;
   height: 80px;
-  border: 3px solid var(--outline);
-  background: var(--leg);
+  border: 3px solid #33304f;
+  background: #35446a;
+  transition: background .7s ease;
+}
+
+:where(:root[data-theme="night"]) .leg {
+  border: 3px solid #0e0a1f;
+  background: #1b1630;
+  transition: background .7s ease;
+}
+
+:where(:root[data-theme="dark"]) .leg {
+  border: 3px solid #07040f;
+  background: #120e22;
   transition: background .7s ease;
 }
 
@@ -378,26 +342,53 @@ button {
 
 .table {
   position: fixed;
-  top: var(--wall-h);
-  left: 3px;
-  right: 3px;
-  bottom: var(--floor-h);
+  inset: 56px 3px 96px;
   z-index: 1;
-  border: 3px solid var(--outline);
+  border: 3px solid #33304f;
   border-top: 0;
   border-radius: 0 0 22px 22px;
   background: var(--edge);
-  box-shadow: 0 26px 34px -8px var(--drop);
+  box-shadow: 0 26px 34px -8px rgba(60, 36, 16, .4);
+}
+
+:where(:root[data-theme="night"]) .table {
+  border: 3px solid #0e0a1f;
+  border-top: 0;
+  border-radius: 0 0 22px 22px;
+  background: var(--edge);
+  box-shadow: 0 26px 34px -8px rgba(0, 0, 10, .6);
+}
+
+:where(:root[data-theme="dark"]) .table {
+  border: 3px solid #07040f;
+  border-top: 0;
+  border-radius: 0 0 22px 22px;
+  background: var(--edge);
+  box-shadow: 0 26px 34px -8px rgba(0, 0, 0, .7);
 }
 
 .desk {
   position: absolute;
-  inset: 0 0 14px 0;
+  inset: 0 0 14px;
   overflow: hidden;
-  border-bottom: 3px solid var(--outline);
+  border-bottom: 3px solid #33304f;
   border-radius: 0 0 16px 16px;
   background: linear-gradient(135deg, var(--wood-hi), var(--wood) 45%, var(--wood-lo));
-  box-shadow: inset 0 0 190px var(--vignette);
+  box-shadow: inset 0 0 190px rgba(120, 70, 20, .2);
+}
+
+:where(:root[data-theme="night"]) .desk {
+  border-bottom: 3px solid #0e0a1f;
+  border-radius: 0 0 16px 16px;
+  background: linear-gradient(135deg, var(--wood-hi), var(--wood) 45%, var(--wood-lo));
+  box-shadow: inset 0 0 190px rgba(14, 4, 30, .75);
+}
+
+:where(:root[data-theme="dark"]) .desk {
+  border-bottom: 3px solid #07040f;
+  border-radius: 0 0 16px 16px;
+  background: linear-gradient(135deg, var(--wood-hi), var(--wood) 45%, var(--wood-lo));
+  box-shadow: inset 0 0 190px rgba(8, 2, 20, .72);
 }
 
 .desk::before, .desk::after {
@@ -411,40 +402,118 @@ button {
 }
 
 .desk::before {
-  opacity: var(--grain-dark);
+  opacity: .85;
   background-image:
     repeating-linear-gradient(
       2deg,
       transparent 0,
       transparent 18px,
-      rgba(70, 35, 12, 0.08) 19px,
+      rgba(70, 35, 12, .08) 19px,
       transparent 21px
     ),
     repeating-linear-gradient(
       -1deg,
       transparent 0,
       transparent 45px,
-      rgba(255, 235, 200, 0.10) 46px,
+      rgba(255, 235, 200, .1) 46px,
+      transparent 49px
+    );
+  background-size: 100% 100%;
+}
+
+:where(:root[data-theme="night"]) .desk::before {
+  opacity: 1;
+  background-image:
+    repeating-linear-gradient(
+      2deg,
+      transparent 0,
+      transparent 18px,
+      rgba(70, 35, 12, .08) 19px,
+      transparent 21px
+    ),
+    repeating-linear-gradient(
+      -1deg,
+      transparent 0,
+      transparent 45px,
+      rgba(255, 235, 200, .1) 46px,
+      transparent 49px
+    );
+  background-size: 100% 100%;
+}
+
+:where(:root[data-theme="dark"]) .desk::before {
+  opacity: 1;
+  background-image:
+    repeating-linear-gradient(
+      2deg,
+      transparent 0,
+      transparent 18px,
+      rgba(70, 35, 12, .08) 19px,
+      transparent 21px
+    ),
+    repeating-linear-gradient(
+      -1deg,
+      transparent 0,
+      transparent 45px,
+      rgba(255, 235, 200, .1) 46px,
       transparent 49px
     );
   background-size: 100% 100%;
 }
 
 .desk::after {
-  opacity: var(--grain-light);
+  opacity: .8;
   background-image:
     repeating-linear-gradient(
       1deg,
       transparent 0,
       transparent 26px,
-      rgba(255, 245, 225, 0.10) 27px,
+      rgba(255, 245, 225, .1) 27px,
       transparent 29px
     ),
     repeating-linear-gradient(
       -1deg,
       transparent 0,
       transparent 58px,
-      rgba(255, 255, 255, 0.07) 59px,
+      rgba(255, 255, 255, .07) 59px,
+      transparent 61px
+    );
+}
+
+:where(:root[data-theme="night"]) .desk::after {
+  opacity: .4;
+  background-image:
+    repeating-linear-gradient(
+      1deg,
+      transparent 0,
+      transparent 26px,
+      rgba(255, 245, 225, .1) 27px,
+      transparent 29px
+    ),
+    repeating-linear-gradient(
+      -1deg,
+      transparent 0,
+      transparent 58px,
+      rgba(255, 255, 255, .07) 59px,
+      transparent 61px
+    );
+}
+
+:where(:root[data-theme="dark"]) .desk::after {
+  opacity: .3;
+  background-image:
+    repeating-linear-gradient(
+      1deg,
+      transparent 0,
+      transparent 26px,
+      rgba(255, 245, 225, .1) 27px,
+      transparent 29px
+    ),
+    repeating-linear-gradient(
+      -1deg,
+      transparent 0,
+      transparent 58px,
+      rgba(255, 255, 255, .07) 59px,
       transparent 61px
     );
 }
@@ -459,26 +528,72 @@ button {
 .plants svg {
   position: absolute;
   overflow: visible;
-  filter: drop-shadow(8px 12px 7px var(--shadow));
+  filter: drop-shadow(8px 12px 7px rgba(116, 64, 20, .4));
+}
+
+:where(:root[data-theme="night"]) .plants svg {
+  filter: drop-shadow(8px 12px 7px rgba(6, 0, 16, .62));
+}
+
+:where(:root[data-theme="dark"]) .plants svg {
+  filter: drop-shadow(8px 12px 7px rgba(2, 0, 12, .74));
 }
 
 .lf {
-  stroke: var(--leaf-line);
+  stroke: #1f4d2b;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+  transition: fill .7s ease;
+}
+
+:where(:root[data-theme="night"]) .lf {
+  stroke: #0e2a1f;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+  transition: fill .7s ease;
+}
+
+:where(:root[data-theme="dark"]) .lf {
+  stroke: #08170f;
   stroke-width: 1.8;
   stroke-linejoin: round;
   transition: fill .7s ease;
 }
 
 .lf1 {
-  fill: var(--leaf1);
+  fill: #4fa23f;
+}
+
+:where(:root[data-theme="night"]) .lf1 {
+  fill: #2f6a3f;
+}
+
+:where(:root[data-theme="dark"]) .lf1 {
+  fill: #234c37;
 }
 
 .lf2 {
-  fill: var(--leaf2);
+  fill: #6db94c;
+}
+
+:where(:root[data-theme="night"]) .lf2 {
+  fill: #3f7d45;
+}
+
+:where(:root[data-theme="dark"]) .lf2 {
+  fill: #2d5b3d;
 }
 
 .lf3 {
-  fill: var(--leaf3);
+  fill: #3b8c3c;
+}
+
+:where(:root[data-theme="night"]) .lf3 {
+  fill: #275b39;
+}
+
+:where(:root[data-theme="dark"]) .lf3 {
+  fill: #1d4131;
 }
 
 .vein {
@@ -490,28 +605,76 @@ button {
 
 .stem {
   fill: none;
-  stroke: var(--leaf-line);
+  stroke: #1f4d2b;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+:where(:root[data-theme="night"]) .stem {
+  stroke: #0e2a1f;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+:where(:root[data-theme="dark"]) .stem {
+  stroke: #08170f;
   stroke-width: 3;
   stroke-linecap: round;
 }
 
 .pot {
-  fill: var(--pot);
-  stroke: var(--outline);
+  fill: #f3ebde;
+  stroke: #33304f;
+  stroke-width: 3;
+  transition: fill .7s ease;
+}
+
+:where(:root[data-theme="night"]) .pot {
+  fill: #cdbfdb;
+  stroke: #0e0a1f;
+  stroke-width: 3;
+  transition: fill .7s ease;
+}
+
+:where(:root[data-theme="dark"]) .pot {
+  fill: #5d5078;
+  stroke: #07040f;
   stroke-width: 3;
   transition: fill .7s ease;
 }
 
 .pot-face {
   fill: none;
-  stroke: var(--outline);
+  stroke: #33304f;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+:where(:root[data-theme="night"]) .pot-face {
+  stroke: #0e0a1f;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+:where(:root[data-theme="dark"]) .pot-face {
+  stroke: #07040f;
   stroke-width: 2.2;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
 .pot-eye {
-  fill: var(--outline);
+  fill: #33304f;
+}
+
+:where(:root[data-theme="night"]) .pot-eye {
+  fill: #0e0a1f;
+}
+
+:where(:root[data-theme="dark"]) .pot-eye {
+  fill: #07040f;
 }
 
 .items {
@@ -528,12 +691,32 @@ button {
   height: 100%;
   pointer-events: none;
   mix-blend-mode: multiply;
-  opacity: var(--sun-opacity);
+  opacity: 1;
+  transition: opacity .7s ease;
+}
+
+:where(:root[data-theme="night"]) .sun {
+  opacity: 0;
+  transition: opacity .7s ease;
+}
+
+:where(:root[data-theme="dark"]) .sun {
+  opacity: 0;
   transition: opacity .7s ease;
 }
 
 .sun-sway {
-  fill: var(--sun-shade);
+  fill: rgba(120, 66, 18, .2);
+  animation: sway 9s ease-in-out infinite alternate;
+}
+
+:where(:root[data-theme="night"]) .sun-sway {
+  fill: transparent;
+  animation: sway 9s ease-in-out infinite alternate;
+}
+
+:where(:root[data-theme="dark"]) .sun-sway {
+  fill: transparent;
   animation: sway 9s ease-in-out infinite alternate;
 }
 
@@ -552,7 +735,15 @@ button {
   z-index: 3;
   pointer-events: none;
   mix-blend-mode: screen;
-  background: radial-gradient(ellipse 60% 70% at 85% 0%, var(--amb1), transparent 70%), radial-gradient(ellipse 55% 60% at 8% 100%, var(--amb2), transparent 70%);
+  background: radial-gradient(ellipse 60% 70% at 85% 0%, rgba(255, 240, 200, .5), transparent 70%), radial-gradient(ellipse 55% 60% at 8% 100%, rgba(110, 140, 220, .14), transparent 70%);
+}
+
+:where(:root[data-theme="night"]) .ambient {
+  background: radial-gradient(ellipse 60% 70% at 85% 0%, rgba(150, 110, 255, .2), transparent 70%), radial-gradient(ellipse 55% 60% at 8% 100%, rgba(60, 90, 200, .22), transparent 70%);
+}
+
+:where(:root[data-theme="dark"]) .ambient {
+  background: radial-gradient(ellipse 60% 70% at 85% 0%, rgba(190, 90, 255, .22), transparent 70%), radial-gradient(ellipse 55% 60% at 8% 100%, rgba(80, 70, 220, .25), transparent 70%);
 }
 
 .light {
@@ -576,7 +767,7 @@ button {
   height: 1700px;
   left: -850px;
   top: -850px;
-  background: radial-gradient(circle, var(--pool-core) 0%, var(--pool-mid) 24%, var(--pool-out) 48%, transparent 68%);
+  background: radial-gradient(circle, rgba(255, 166, 80, 1), rgba(255, 136, 60, .56) 24%, rgba(255, 110, 50, .2) 48%, transparent 68%);
 }
 
 .light::after {
@@ -587,18 +778,15 @@ button {
   left: -900px;
   top: 0;
   transform-origin: 50% 0;
-  transform: rotate(var(--beam, 0deg));
-  background: conic-gradient(from 135deg at 50% 0%,
-    transparent 0deg, var(--beam-color) 45deg, transparent 90deg, transparent 360deg);
-  -webkit-mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, #000 0%, rgba(0, 0, 0, .55) 40%, transparent 72%);
-  mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, #000 0%, rgba(0, 0, 0, .55) 40%, transparent 72%);
+  transform: rotate(var(--beam, 0));
+  background: conic-gradient(from 135deg at 50% 0%, transparent, rgba(255, 208, 132, .78) 45deg, transparent 90deg, transparent);
+  -webkit-mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, #000, rgba(0, 0, 0, .55) 40%, transparent 72%);
+  mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, #000, rgba(0, 0, 0, .55) 40%, transparent 72%);
 }
 
 .bar {
   position: fixed;
-  bottom: 16px;
-  left: 0;
-  right: 0;
+  inset: auto 0 16px;
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -614,10 +802,34 @@ button {
 }
 
 .brand, .theme-switch, .pill-btn, .pop {
-  background: var(--ui-bg);
-  color: var(--ui-ink);
+  background: rgba(255, 247, 234, .9);
+  color: #4b3b52;
   backdrop-filter: blur(8px);
-  border: 2px solid var(--outline);
+  border: 2px solid #33304f;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+  transition: background .5s, color .5s;
+}
+
+:where(:root[data-theme="night"]) .brand,
+:where(:root[data-theme="night"]) .theme-switch,
+:where(:root[data-theme="night"]) .pill-btn,
+:where(:root[data-theme="night"]) .pop {
+  background: rgba(36, 24, 62, .9);
+  color: #f1dcee;
+  backdrop-filter: blur(8px);
+  border: 2px solid #0e0a1f;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+  transition: background .5s, color .5s;
+}
+
+:where(:root[data-theme="dark"]) .brand,
+:where(:root[data-theme="dark"]) .theme-switch,
+:where(:root[data-theme="dark"]) .pill-btn,
+:where(:root[data-theme="dark"]) .pop {
+  background: rgba(22, 15, 42, .92);
+  color: #e3d6ff;
+  backdrop-filter: blur(8px);
+  border: 2px solid #07040f;
   box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
   transition: background .5s, color .5s;
 }
@@ -649,8 +861,18 @@ button {
 }
 
 .theme-switch button[aria-pressed="true"] {
-  background: var(--ui-active);
-  color: var(--ui-active-ink);
+  background: #f2b66a;
+  color: #3b2a14;
+}
+
+:where(:root[data-theme="night"]) .theme-switch button[aria-pressed="true"] {
+  background: #ffc27a;
+  color: #2a1530;
+}
+
+:where(:root[data-theme="dark"]) .theme-switch button[aria-pressed="true"] {
+  background: #c9a0ff;
+  color: #170f30;
 }
 
 .menu-wrap {
@@ -693,8 +915,18 @@ button {
 }
 
 .pop li button:hover {
-  background: var(--ui-active);
-  color: var(--ui-active-ink);
+  background: #f2b66a;
+  color: #3b2a14;
+}
+
+:where(:root[data-theme="night"]) .pop li button:hover {
+  background: #ffc27a;
+  color: #2a1530;
+}
+
+:where(:root[data-theme="dark"]) .pop li button:hover {
+  background: #c9a0ff;
+  color: #170f30;
 }
 
 .settings {
@@ -732,7 +964,15 @@ button {
 }
 
 .swatch[aria-pressed="true"] {
-  border-color: var(--ui-active);
+  border-color: #f2b66a;
+}
+
+:where(:root[data-theme="night"]) .swatch[aria-pressed="true"] {
+  border-color: #ffc27a;
+}
+
+:where(:root[data-theme="dark"]) .swatch[aria-pressed="true"] {
+  border-color: #c9a0ff;
 }
 
 .custom {
@@ -762,8 +1002,18 @@ button {
 }
 
 .settings .reset:hover {
-  background: var(--ui-active);
-  color: var(--ui-active-ink);
+  background: #f2b66a;
+  color: #3b2a14;
+}
+
+:where(:root[data-theme="night"]) .settings .reset:hover {
+  background: #ffc27a;
+  color: #2a1530;
+}
+
+:where(:root[data-theme="dark"]) .settings .reset:hover {
+  background: #c9a0ff;
+  color: #170f30;
 }
 
 .hint {
@@ -775,8 +1025,26 @@ button {
   max-width: 300px;
   font-size: .78rem;
   font-weight: 600;
-  color: var(--ui-ink);
-  background: var(--ui-bg);
+  color: #4b3b52;
+  background: rgba(255, 247, 234, .9);
+  padding: 5px 12px;
+  border-radius: 14px;
+  opacity: .88;
+  pointer-events: none;
+}
+
+:where(:root[data-theme="night"]) .hint {
+  color: #f1dcee;
+  background: rgba(36, 24, 62, .9);
+  padding: 5px 12px;
+  border-radius: 14px;
+  opacity: .88;
+  pointer-events: none;
+}
+
+:where(:root[data-theme="dark"]) .hint {
+  color: #e3d6ff;
+  background: rgba(22, 15, 42, .92);
   padding: 5px 12px;
   border-radius: 14px;
   opacity: .88;
@@ -785,7 +1053,7 @@ button {
 
 .item {
   position: absolute;
-  --rot: 0deg;
+  --rot: 0;
   --scale: 1;
   --fx: 1;
   --lift: 1;
@@ -812,19 +1080,91 @@ button {
 }
 
 .widget {
-  --face: var(--card);
+  --face: #f8f2e6;
+  --thick: 8px;
+  --w-edge: color-mix(in srgb, var(--face), #000 42%);
+}
+
+:where(:root[data-theme="night"]) .widget {
+  --face: #3a3358;
+  --thick: 8px;
+  --w-edge: color-mix(in srgb, var(--face), #000 42%);
+}
+
+:where(:root[data-theme="dark"]) .widget {
+  --face: #2c2548;
   --thick: 8px;
   --w-edge: color-mix(in srgb, var(--face), #000 42%);
 }
 
 .widget, .sticky > .face, .monitor > .mon-body {
   background: linear-gradient(160deg,
-    color-mix(in srgb, var(--face), #fff 12%) 0%,
+    color-mix(in srgb, var(--face), #fff 12%),
     var(--face) 55%,
     color-mix(in srgb, var(--face), #000 8%) 100%);
-  border: 2px solid var(--outline);
+  border: 2px solid #33304f;
   border-radius: 14px;
-  box-shadow:     inset 0 2px 0 rgba(255, 255, 255, .3), inset 0 -3px 7px rgba(0, 0, 0, .16),  calc(var(--sx) * var(--thick) * .125) calc(var(--sy) * var(--thick) * .125) 0 var(--w-edge),     calc(var(--sx) * var(--thick) * .25) calc(var(--sy) * var(--thick) * .25) 0 var(--w-edge),     calc(var(--sx) * var(--thick) * .375) calc(var(--sy) * var(--thick) * .375) 0 var(--w-edge),     calc(var(--sx) * var(--thick) * .5) calc(var(--sy) * var(--thick) * .5) 0 var(--w-edge),     calc(var(--sx) * var(--thick) * .625) calc(var(--sy) * var(--thick) * .625) 0 var(--w-edge),     calc(var(--sx) * var(--thick) * .75) calc(var(--sy) * var(--thick) * .75) 0 var(--w-edge),     calc(var(--sx) * var(--thick) * .875) calc(var(--sy) * var(--thick) * .875) 0 var(--w-edge),     calc(var(--sx) * var(--thick)) calc(var(--sy) * var(--thick)) 0 var(--w-edge),     calc(var(--sx) * (var(--thick) + 2px)) calc(var(--sy) * (var(--thick) + 2px)) 0 var(--outline),     calc(var(--sx) * (var(--thick) + 3px)) calc(var(--sy) * (var(--thick) + 3px)) 3px rgba(0, 0, 0, .55),     calc(var(--sx) * var(--thick) * 1.8 * var(--h)) calc(var(--sy) * var(--thick) * 1.8 * var(--h)) 12px var(--shadow),     calc(var(--sx) * var(--thick) * 3.4 * var(--h)) calc(var(--sy) * var(--thick) * 3.4 * var(--h)) 28px var(--shadow);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, .3),
+    inset 0 -3px 7px rgba(0, 0, 0, .16),
+    calc(var(--sx) * var(--thick) * .125) calc(var(--sy) * var(--thick) * .125) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .25) calc(var(--sy) * var(--thick) * .25) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .375) calc(var(--sy) * var(--thick) * .375) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .5) calc(var(--sy) * var(--thick) * .5) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .625) calc(var(--sy) * var(--thick) * .625) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .75) calc(var(--sy) * var(--thick) * .75) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .875) calc(var(--sy) * var(--thick) * .875) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick)) calc(var(--sy) * var(--thick)) 0 var(--w-edge),
+    calc(var(--sx) * (var(--thick) + 2px)) calc(var(--sy) * (var(--thick) + 2px)) 0 #33304f,
+    calc(var(--sx) * (var(--thick) + 3px)) calc(var(--sy) * (var(--thick) + 3px)) 3px rgba(0, 0, 0, .55),
+    calc(var(--sx) * var(--thick) * 1.8 * var(--h)) calc(var(--sy) * var(--thick) * 1.8 * var(--h)) 12px rgba(116, 64, 20, .4),
+    calc(var(--sx) * var(--thick) * 3.4 * var(--h)) calc(var(--sy) * var(--thick) * 3.4 * var(--h)) 28px rgba(116, 64, 20, .4);
+  transition: transform .15s ease, background .5s, color .5s;
+}
+
+:where(:root[data-theme="night"]) .widget,
+:where(:root[data-theme="night"]) .sticky > .face,
+:where(:root[data-theme="night"]) .monitor > .mon-body {
+  border: 2px solid #0e0a1f;
+  border-radius: 14px;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, .3),
+    inset 0 -3px 7px rgba(0, 0, 0, .16),
+    calc(var(--sx) * var(--thick) * .125) calc(var(--sy) * var(--thick) * .125) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .25) calc(var(--sy) * var(--thick) * .25) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .375) calc(var(--sy) * var(--thick) * .375) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .5) calc(var(--sy) * var(--thick) * .5) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .625) calc(var(--sy) * var(--thick) * .625) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .75) calc(var(--sy) * var(--thick) * .75) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .875) calc(var(--sy) * var(--thick) * .875) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick)) calc(var(--sy) * var(--thick)) 0 var(--w-edge),
+    calc(var(--sx) * (var(--thick) + 2px)) calc(var(--sy) * (var(--thick) + 2px)) 0 #0e0a1f,
+    calc(var(--sx) * (var(--thick) + 3px)) calc(var(--sy) * (var(--thick) + 3px)) 3px rgba(0, 0, 0, .55),
+    calc(var(--sx) * var(--thick) * 1.8 * var(--h)) calc(var(--sy) * var(--thick) * 1.8 * var(--h)) 12px rgba(6, 0, 16, .62),
+    calc(var(--sx) * var(--thick) * 3.4 * var(--h)) calc(var(--sy) * var(--thick) * 3.4 * var(--h)) 28px rgba(6, 0, 16, .62);
+  transition: transform .15s ease, background .5s, color .5s;
+}
+
+:where(:root[data-theme="dark"]) .widget,
+:where(:root[data-theme="dark"]) .sticky > .face,
+:where(:root[data-theme="dark"]) .monitor > .mon-body {
+  border: 2px solid #07040f;
+  border-radius: 14px;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, .3),
+    inset 0 -3px 7px rgba(0, 0, 0, .16),
+    calc(var(--sx) * var(--thick) * .125) calc(var(--sy) * var(--thick) * .125) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .25) calc(var(--sy) * var(--thick) * .25) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .375) calc(var(--sy) * var(--thick) * .375) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .5) calc(var(--sy) * var(--thick) * .5) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .625) calc(var(--sy) * var(--thick) * .625) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .75) calc(var(--sy) * var(--thick) * .75) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick) * .875) calc(var(--sy) * var(--thick) * .875) 0 var(--w-edge),
+    calc(var(--sx) * var(--thick)) calc(var(--sy) * var(--thick)) 0 var(--w-edge),
+    calc(var(--sx) * (var(--thick) + 2px)) calc(var(--sy) * (var(--thick) + 2px)) 0 #07040f,
+    calc(var(--sx) * (var(--thick) + 3px)) calc(var(--sy) * (var(--thick) + 3px)) 3px rgba(0, 0, 0, .55),
+    calc(var(--sx) * var(--thick) * 1.8 * var(--h)) calc(var(--sy) * var(--thick) * 1.8 * var(--h)) 12px rgba(2, 0, 12, .74),
+    calc(var(--sx) * var(--thick) * 3.4 * var(--h)) calc(var(--sy) * var(--thick) * 3.4 * var(--h)) 28px rgba(2, 0, 12, .74);
   transition: transform .15s ease, background .5s, color .5s;
 }
 
@@ -835,9 +1175,37 @@ button {
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  border: 2px solid var(--outline);
-  background: var(--ui-active);
-  color: var(--ui-active-ink);
+  border: 2px solid #33304f;
+  background: #f2b66a;
+  color: #3b2a14;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .35);
+  opacity: 0;
+  transform: scale(.7);
+  transition: opacity .15s, transform .15s;
+  z-index: 5;
+}
+
+:where(:root[data-theme="night"]) .remove,
+:where(:root[data-theme="night"]) .edit {
+  border: 2px solid #0e0a1f;
+  background: #ffc27a;
+  color: #2a1530;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .35);
+  opacity: 0;
+  transform: scale(.7);
+  transition: opacity .15s, transform .15s;
+  z-index: 5;
+}
+
+:where(:root[data-theme="dark"]) .remove,
+:where(:root[data-theme="dark"]) .edit {
+  border: 2px solid #07040f;
+  background: #c9a0ff;
+  color: #170f30;
   font-weight: 700;
   line-height: 1;
   box-shadow: 0 3px 8px rgba(0, 0, 0, .35);
@@ -859,12 +1227,27 @@ button {
 
 .resize {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  inset: auto 0 0 auto;
   width: 22px;
   height: 22px;
   border-radius: 0 0 14px 0;
-  background: linear-gradient(135deg, transparent 50%, var(--ui-active) 50%);
+  background: linear-gradient(135deg, transparent 50%, #f2b66a 50%);
+  cursor: nwse-resize;
+  opacity: 0;
+  transition: opacity .15s;
+  z-index: 5;
+}
+
+:where(:root[data-theme="night"]) .resize {
+  background: linear-gradient(135deg, transparent 50%, #ffc27a 50%);
+  cursor: nwse-resize;
+  opacity: 0;
+  transition: opacity .15s;
+  z-index: 5;
+}
+
+:where(:root[data-theme="dark"]) .resize {
+  background: linear-gradient(135deg, transparent 50%, #c9a0ff 50%);
   cursor: nwse-resize;
   opacity: 0;
   transition: opacity .15s;
@@ -888,44 +1271,128 @@ button {
 .lamp svg {
   display: block;
   overflow: visible;
-  filter:  drop-shadow(calc(var(--sx) * 5px) calc(var(--sy) * 5px) 2px rgba(0, 0, 0, .45))     drop-shadow(calc(var(--sx) * 18px * var(--h)) calc(var(--sy) * 18px * var(--h)) 10px var(--shadow));
+  filter: drop-shadow(calc(var(--sx) * 5px) calc(var(--sy) * 5px) 2px rgba(0, 0, 0, .45)) drop-shadow(calc(var(--sx) * 18px * var(--h)) calc(var(--sy) * 18px * var(--h)) 10px rgba(116, 64, 20, .4));
+}
+
+:where(:root[data-theme="night"]) .lamp svg {
+  filter: drop-shadow(calc(var(--sx) * 5px) calc(var(--sy) * 5px) 2px rgba(0, 0, 0, .45)) drop-shadow(calc(var(--sx) * 18px * var(--h)) calc(var(--sy) * 18px * var(--h)) 10px rgba(6, 0, 16, .62));
+}
+
+:where(:root[data-theme="dark"]) .lamp svg {
+  filter: drop-shadow(calc(var(--sx) * 5px) calc(var(--sy) * 5px) 2px rgba(0, 0, 0, .45)) drop-shadow(calc(var(--sx) * 18px * var(--h)) calc(var(--sy) * 18px * var(--h)) 10px rgba(2, 0, 12, .74));
 }
 
 .lp-base-side {
-  fill: color-mix(in srgb, var(--lamp-base), #000 35%);
-  stroke: var(--outline);
+  fill: color-mix(in srgb, #5c74a3, #000 35%);
+  stroke: #33304f;
+  stroke-width: 2.5;
+}
+
+:where(:root[data-theme="night"]) .lp-base-side {
+  fill: color-mix(in srgb, #4a3c78, #000 35%);
+  stroke: #0e0a1f;
+  stroke-width: 2.5;
+}
+
+:where(:root[data-theme="dark"]) .lp-base-side {
+  fill: color-mix(in srgb, #382e62, #000 35%);
+  stroke: #07040f;
   stroke-width: 2.5;
 }
 
 .lp-base {
-  fill: var(--lamp-base);
-  stroke: var(--outline);
+  fill: #5c74a3;
+  stroke: #33304f;
+  stroke-width: 2.5;
+}
+
+:where(:root[data-theme="night"]) .lp-base {
+  fill: #4a3c78;
+  stroke: #0e0a1f;
+  stroke-width: 2.5;
+}
+
+:where(:root[data-theme="dark"]) .lp-base {
+  fill: #382e62;
+  stroke: #07040f;
   stroke-width: 2.5;
 }
 
 .lp-base-in {
-  fill: color-mix(in srgb, var(--lamp-base), #000 18%);
-  stroke: var(--outline);
+  fill: color-mix(in srgb, #5c74a3, #000 18%);
+  stroke: #33304f;
+  stroke-width: 2;
+}
+
+:where(:root[data-theme="night"]) .lp-base-in {
+  fill: color-mix(in srgb, #4a3c78, #000 18%);
+  stroke: #0e0a1f;
+  stroke-width: 2;
+}
+
+:where(:root[data-theme="dark"]) .lp-base-in {
+  fill: color-mix(in srgb, #382e62, #000 18%);
+  stroke: #07040f;
   stroke-width: 2;
 }
 
 .lp-stem-o {
   fill: none;
-  stroke: var(--outline);
+  stroke: #33304f;
+  stroke-width: 14;
+  stroke-linecap: round;
+}
+
+:where(:root[data-theme="night"]) .lp-stem-o {
+  stroke: #0e0a1f;
+  stroke-width: 14;
+  stroke-linecap: round;
+}
+
+:where(:root[data-theme="dark"]) .lp-stem-o {
+  stroke: #07040f;
   stroke-width: 14;
   stroke-linecap: round;
 }
 
 .lp-stem {
   fill: none;
-  stroke: var(--lamp-shell);
+  stroke: #6f88b8;
+  stroke-width: 9;
+  stroke-linecap: round;
+}
+
+:where(:root[data-theme="night"]) .lp-stem {
+  stroke: #5d4d8c;
+  stroke-width: 9;
+  stroke-linecap: round;
+}
+
+:where(:root[data-theme="dark"]) .lp-stem {
+  stroke: #433871;
   stroke-width: 9;
   stroke-linecap: round;
 }
 
 .lp-shell {
-  fill: var(--lamp-shell);
-  stroke: var(--outline);
+  fill: #6f88b8;
+  stroke: #33304f;
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  transition: fill .5s;
+}
+
+:where(:root[data-theme="night"]) .lp-shell {
+  fill: #5d4d8c;
+  stroke: #0e0a1f;
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  transition: fill .5s;
+}
+
+:where(:root[data-theme="dark"]) .lp-shell {
+  fill: #433871;
+  stroke: #07040f;
   stroke-width: 2.5;
   stroke-linejoin: round;
   transition: fill .5s;
@@ -933,26 +1400,74 @@ button {
 
 .lp-shine {
   fill: none;
-  stroke: var(--lamp-shell-hi);
+  stroke: #9db3da;
+  stroke-width: 7;
+  stroke-linecap: round;
+  opacity: .7;
+}
+
+:where(:root[data-theme="night"]) .lp-shine {
+  stroke: #8c78c4;
+  stroke-width: 7;
+  stroke-linecap: round;
+  opacity: .7;
+}
+
+:where(:root[data-theme="dark"]) .lp-shine {
+  stroke: #5f5290;
   stroke-width: 7;
   stroke-linecap: round;
   opacity: .7;
 }
 
 .lp-rim {
-  fill: var(--lamp-shell-hi);
-  stroke: var(--outline);
+  fill: #9db3da;
+  stroke: #33304f;
+  stroke-width: 2.5;
+  transition: fill .5s;
+}
+
+:where(:root[data-theme="night"]) .lp-rim {
+  fill: #8c78c4;
+  stroke: #0e0a1f;
+  stroke-width: 2.5;
+  transition: fill .5s;
+}
+
+:where(:root[data-theme="dark"]) .lp-rim {
+  fill: #5f5290;
+  stroke: #07040f;
   stroke-width: 2.5;
   transition: fill .5s;
 }
 
 .lp-inner {
-  fill: var(--lamp-inner-off);
+  fill: #eef2fb;
+  transition: fill .5s;
+}
+
+:where(:root[data-theme="night"]) .lp-inner {
+  fill: #9a86c8;
+  transition: fill .5s;
+}
+
+:where(:root[data-theme="dark"]) .lp-inner {
+  fill: #4f4480;
   transition: fill .5s;
 }
 
 .lp-bulb {
-  fill: var(--bulb);
+  fill: #fff6d6;
+  transition: fill .5s;
+}
+
+:where(:root[data-theme="night"]) .lp-bulb {
+  fill: #fff0bf;
+  transition: fill .5s;
+}
+
+:where(:root[data-theme="dark"]) .lp-bulb {
+  fill: #5f5490;
   transition: fill .5s;
 }
 
@@ -967,7 +1482,23 @@ button {
 }
 
 .w-clock {
-  --face: var(--clock-body);
+  --face: #efe7d8;
+  --thick: 12px;
+  width: 184px;
+  padding: 14px 14px 10px;
+  border-radius: 22px;
+}
+
+:where(:root[data-theme="night"]) .w-clock {
+  --face: #2e2c58;
+  --thick: 12px;
+  width: 184px;
+  padding: 14px 14px 10px;
+  border-radius: 22px;
+}
+
+:where(:root[data-theme="dark"]) .w-clock {
+  --face: #3a2f66;
   --thick: 12px;
   width: 184px;
   padding: 14px 14px 10px;
@@ -981,15 +1512,41 @@ button {
   width: 56px;
   height: 34px;
   z-index: 2;
-  fill: var(--clock-body);
-  stroke: var(--outline);
+  fill: #efe7d8;
+  stroke: #33304f;
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  transition: fill .5s;
+}
+
+:where(:root[data-theme="night"]) .cat-ears {
+  fill: #2e2c58;
+  stroke: #0e0a1f;
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  transition: fill .5s;
+}
+
+:where(:root[data-theme="dark"]) .cat-ears {
+  fill: #3a2f66;
+  stroke: #07040f;
   stroke-width: 2.5;
   stroke-linejoin: round;
   transition: fill .5s;
 }
 
 .cat-ears .eye {
-  fill: var(--outline);
+  fill: #33304f;
+  stroke: none;
+}
+
+:where(:root[data-theme="night"]) .cat-ears .eye {
+  fill: #0e0a1f;
+  stroke: none;
+}
+
+:where(:root[data-theme="dark"]) .cat-ears .eye {
+  fill: #07040f;
   stroke: none;
 }
 
@@ -1004,9 +1561,25 @@ button {
   flex-direction: column;
   align-items: center;
   padding: 8px 10px 6px;
-  border: 2px solid var(--outline);
+  border: 2px solid #33304f;
   border-radius: 14px;
-  background: var(--screen-bg);
+  background: #1e2339;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, .45);
+  transition: background .5s;
+}
+
+:where(:root[data-theme="night"]) .clock-screen {
+  border: 2px solid #0e0a1f;
+  border-radius: 14px;
+  background: #14122b;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, .45);
+  transition: background .5s;
+}
+
+:where(:root[data-theme="dark"]) .clock-screen {
+  border: 2px solid #07040f;
+  border-radius: 14px;
+  background: #0d0a1f;
   box-shadow: inset 0 3px 8px rgba(0, 0, 0, .45);
   transition: background .5s;
 }
@@ -1015,8 +1588,20 @@ button {
   font-family: "VT323", monospace;
   font-size: 3.9rem;
   line-height: .85;
-  color: var(--digit);
-  text-shadow: var(--digit-glow);
+  color: #f4f7ff;
+  text-shadow: 0 0 3px rgba(255, 255, 255, .5);
+  transition: color .5s, text-shadow .5s;
+}
+
+:where(:root[data-theme="night"]) .clock-hm {
+  color: #dcc6ff;
+  text-shadow: 0 0 6px #b48cff, 0 0 18px rgba(170, 120, 255, .8);
+  transition: color .5s, text-shadow .5s;
+}
+
+:where(:root[data-theme="dark"]) .clock-hm {
+  color: #ff9fe6;
+  text-shadow: 0 0 6px #ff5fd8, 0 0 20px rgba(255, 90, 216, .8), 0 0 44px rgba(150, 90, 255, .5);
   transition: color .5s, text-shadow .5s;
 }
 
@@ -1029,7 +1614,17 @@ button {
   font-size: .6rem;
   font-weight: 700;
   letter-spacing: .22em;
-  color: var(--digit);
+  color: #f4f7ff;
+  opacity: .8;
+}
+
+:where(:root[data-theme="night"]) .clock-ap {
+  color: #dcc6ff;
+  opacity: .8;
+}
+
+:where(:root[data-theme="dark"]) .clock-ap {
+  color: #ff9fe6;
   opacity: .8;
 }
 
@@ -1040,9 +1635,29 @@ button {
 }
 
 .w-calendar {
-  --face: var(--card);
+  --face: #f8f2e6;
   --thick: 9px;
-  --w-edge: var(--cal-base);
+  --w-edge: #2d3452;
+  width: 300px;
+  padding: 0;
+  border-radius: 6px;
+  font-family: "Patrick Hand", "Quicksand", sans-serif;
+}
+
+:where(:root[data-theme="night"]) .w-calendar {
+  --face: #3a3358;
+  --thick: 9px;
+  --w-edge: #1c1738;
+  width: 300px;
+  padding: 0;
+  border-radius: 6px;
+  font-family: "Patrick Hand", "Quicksand", sans-serif;
+}
+
+:where(:root[data-theme="dark"]) .w-calendar {
+  --face: #2c2548;
+  --thick: 9px;
+  --w-edge: #130f28;
   width: 300px;
   padding: 0;
   border-radius: 6px;
@@ -1052,9 +1667,7 @@ button {
 .w-calendar::before {
   content: "";
   position: absolute;
-  top: -12px;
-  left: 14px;
-  right: 14px;
+  inset: -12px 14px auto;
   height: 22px;
   z-index: 3;
   background: repeating-linear-gradient(90deg, transparent 0 4px, #15141f 4px 8px, transparent 8px 15px);
@@ -1078,7 +1691,17 @@ button {
   pointer-events: none;
   border-radius: 4px;
   transform-origin: 50% 0;
-  background: linear-gradient(160deg, color-mix(in srgb, var(--card), #fff 12%), var(--card) 60%, color-mix(in srgb, var(--card), #000 8%));
+  background: linear-gradient(160deg, color-mix(in srgb, #f8f2e6, #fff 12%), #f8f2e6 60%, color-mix(in srgb, #f8f2e6, #000 8%));
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .3);
+}
+
+:where(:root[data-theme="night"]) .cal-flip {
+  background: linear-gradient(160deg, color-mix(in srgb, #3a3358, #fff 12%), #3a3358 60%, color-mix(in srgb, #3a3358, #000 8%));
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .3);
+}
+
+:where(:root[data-theme="dark"]) .cal-flip {
+  background: linear-gradient(160deg, color-mix(in srgb, #2c2548, #fff 12%), #2c2548 60%, color-mix(in srgb, #2c2548, #000 8%));
   box-shadow: 0 8px 16px rgba(0, 0, 0, .3);
 }
 
@@ -1092,7 +1715,7 @@ button {
 
 @keyframes pgNext {
   from {
-    transform: rotateX(0deg);
+    transform: rotateX(0);
     opacity: 1;
   }
   to {
@@ -1107,7 +1730,7 @@ button {
     opacity: 0;
   }
   to {
-    transform: rotateX(0deg);
+    transform: rotateX(0);
     opacity: 1;
   }
 }
@@ -1137,15 +1760,39 @@ button {
   height: 24px;
   flex: none;
   padding: 0;
-  border: 2px solid var(--outline);
+  border: 2px solid #33304f;
   border-radius: 50%;
-  background: var(--ui-active);
-  color: var(--ui-active-ink);
+  background: #f2b66a;
+  color: #3b2a14;
   font-family: "Quicksand", sans-serif;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1;
-  box-shadow: 0 2px 0 var(--outline);
+  box-shadow: 0 2px 0 #33304f;
+}
+
+:where(:root[data-theme="night"]) .cal-nav {
+  border: 2px solid #0e0a1f;
+  border-radius: 50%;
+  background: #ffc27a;
+  color: #2a1530;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 2px 0 #0e0a1f;
+}
+
+:where(:root[data-theme="dark"]) .cal-nav {
+  border: 2px solid #07040f;
+  border-radius: 50%;
+  background: #c9a0ff;
+  color: #170f30;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 2px 0 #07040f;
 }
 
 .cal-nav:active {
@@ -1159,25 +1806,49 @@ button {
   flex: none;
 }
 
-.cal-art .m1 {
-  fill: #7f77d8;
-  stroke: var(--outline);
+.cal-art .m1, .cal-art .m2 {
+  stroke: #33304f;
   stroke-width: 1.5;
   stroke-linejoin: round;
 }
 
-.cal-art .m2 {
-  fill: #f0a0b8;
-  stroke: var(--outline);
+:where(:root[data-theme="night"]) .cal-art .m1,
+:where(:root[data-theme="night"]) .cal-art .m2 {
+  stroke: #0e0a1f;
   stroke-width: 1.5;
   stroke-linejoin: round;
+}
+
+:where(:root[data-theme="dark"]) .cal-art .m1,
+:where(:root[data-theme="dark"]) .cal-art .m2 {
+  stroke: #07040f;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.cal-art .m1 {
+  fill: #7f77d8;
+}
+
+.cal-art .m2 {
+  fill: #f0a0b8;
 }
 
 .cal-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  border-top: 1px solid var(--cal-line);
-  border-left: 1px solid var(--cal-line);
+  border-top: 1px solid rgba(70, 60, 90, .28);
+  border-left: 1px solid rgba(70, 60, 90, .28);
+}
+
+:where(:root[data-theme="night"]) .cal-grid {
+  border-top: 1px solid rgba(240, 220, 255, .2);
+  border-left: 1px solid rgba(240, 220, 255, .2);
+}
+
+:where(:root[data-theme="dark"]) .cal-grid {
+  border-top: 1px solid rgba(240, 220, 255, .16);
+  border-left: 1px solid rgba(240, 220, 255, .16);
 }
 
 .cal-grid span {
@@ -1186,8 +1857,20 @@ button {
   justify-content: flex-end;
   height: 25px;
   padding: 2px 6px 0 0;
-  border-right: 1px solid var(--cal-line);
-  border-bottom: 1px solid var(--cal-line);
+  border-right: 1px solid rgba(70, 60, 90, .28);
+  border-bottom: 1px solid rgba(70, 60, 90, .28);
+  font-size: .85rem;
+}
+
+:where(:root[data-theme="night"]) .cal-grid span {
+  border-right: 1px solid rgba(240, 220, 255, .2);
+  border-bottom: 1px solid rgba(240, 220, 255, .2);
+  font-size: .85rem;
+}
+
+:where(:root[data-theme="dark"]) .cal-grid span {
+  border-right: 1px solid rgba(240, 220, 255, .16);
+  border-bottom: 1px solid rgba(240, 220, 255, .16);
   font-size: .85rem;
 }
 
@@ -1197,13 +1880,41 @@ button {
   align-items: center;
   padding: 0;
   font-size: .8rem;
-  color: var(--ink-soft);
+  color: #8a7f9a;
+}
+
+:where(:root[data-theme="night"]) .cal-grid .dow {
+  color: #a99cc8;
+}
+
+:where(:root[data-theme="dark"]) .cal-grid .dow {
+  color: #9d8ccc;
 }
 
 .cal-grid .today {
-  background: var(--today-bg);
-  color: var(--today-ink);
-  box-shadow: var(--today-glow);
+  background: #f6c27a;
+  color: #3b2a14;
+  box-shadow: none;
+  position: relative;
+  z-index: 1;
+  border-radius: 3px;
+  transition: box-shadow .5s, background .5s;
+}
+
+:where(:root[data-theme="night"]) .cal-grid .today {
+  background: #ffc27a;
+  color: #2a1530;
+  box-shadow: 0 0 10px rgba(255, 194, 122, .9), 0 0 22px rgba(255, 150, 80, .55);
+  position: relative;
+  z-index: 1;
+  border-radius: 3px;
+  transition: box-shadow .5s, background .5s;
+}
+
+:where(:root[data-theme="dark"]) .cal-grid .today {
+  background: #ff7ad9;
+  color: #1a0b24;
+  box-shadow: 0 0 10px rgba(255, 122, 217, .95), 0 0 26px rgba(190, 100, 255, .7);
   position: relative;
   z-index: 1;
   border-radius: 3px;
@@ -1227,7 +1938,19 @@ button {
   content: "";
   position: absolute;
   inset: 0;
-  border: 2px solid var(--outline);
+  border: 2px solid #33304f;
+  border-radius: 3px;
+}
+
+:where(:root[data-theme="night"]) .sticky::before,
+:where(:root[data-theme="night"]) .sticky::after {
+  border: 2px solid #0e0a1f;
+  border-radius: 3px;
+}
+
+:where(:root[data-theme="dark"]) .sticky::before,
+:where(:root[data-theme="dark"]) .sticky::after {
+  border: 2px solid #07040f;
   border-radius: 3px;
 }
 
@@ -1244,33 +1967,93 @@ button {
 }
 
 .c-pink {
-  --face: var(--n-pink);
-  --s2: var(--n-mint);
-  --s3: var(--n-yellow);
+  --face: #f6a9c1;
+  --s2: #a9dcb5;
+  --s3: #f7e37e;
+}
+
+:where(:root[data-theme="night"]) .c-pink {
+  --face: #c47ca8;
+  --s2: #6fae8e;
+  --s3: #d2b45c;
+}
+
+:where(:root[data-theme="dark"]) .c-pink {
+  --face: #8f5a86;
+  --s2: #50866f;
+  --s3: #a38e4c;
 }
 
 .c-blue {
-  --face: var(--n-blue);
-  --s2: var(--n-lilac);
-  --s3: var(--n-pink);
+  --face: #8fb8ee;
+  --s2: #c5aaee;
+  --s3: #f6a9c1;
+}
+
+:where(:root[data-theme="night"]) .c-blue {
+  --face: #7480cc;
+  --s2: #8c76c8;
+  --s3: #c47ca8;
+}
+
+:where(:root[data-theme="dark"]) .c-blue {
+  --face: #505ca8;
+  --s2: #6a58a6;
+  --s3: #8f5a86;
 }
 
 .c-yellow {
-  --face: var(--n-yellow);
-  --s2: var(--n-pink);
-  --s3: var(--n-mint);
+  --face: #f7e37e;
+  --s2: #f6a9c1;
+  --s3: #a9dcb5;
+}
+
+:where(:root[data-theme="night"]) .c-yellow {
+  --face: #d2b45c;
+  --s2: #c47ca8;
+  --s3: #6fae8e;
+}
+
+:where(:root[data-theme="dark"]) .c-yellow {
+  --face: #a38e4c;
+  --s2: #8f5a86;
+  --s3: #50866f;
 }
 
 .c-mint {
-  --face: var(--n-mint);
-  --s2: var(--n-yellow);
-  --s3: var(--n-blue);
+  --face: #a9dcb5;
+  --s2: #f7e37e;
+  --s3: #8fb8ee;
+}
+
+:where(:root[data-theme="night"]) .c-mint {
+  --face: #6fae8e;
+  --s2: #d2b45c;
+  --s3: #7480cc;
+}
+
+:where(:root[data-theme="dark"]) .c-mint {
+  --face: #50866f;
+  --s2: #a38e4c;
+  --s3: #505ca8;
 }
 
 .c-lilac {
-  --face: var(--n-lilac);
-  --s2: var(--n-blue);
-  --s3: var(--n-pink);
+  --face: #c5aaee;
+  --s2: #8fb8ee;
+  --s3: #f6a9c1;
+}
+
+:where(:root[data-theme="night"]) .c-lilac {
+  --face: #8c76c8;
+  --s2: #7480cc;
+  --s3: #c47ca8;
+}
+
+:where(:root[data-theme="dark"]) .c-lilac {
+  --face: #6a58a6;
+  --s2: #505ca8;
+  --s3: #8f5a86;
 }
 
 .w-note {
@@ -1416,7 +2199,25 @@ button {
 }
 
 .w-notebook {
-  --face: var(--nb-cover);
+  --face: #27345e;
+  --thick: 7px;
+  width: 200px;
+  height: 262px;
+  padding: 0;
+  border-radius: 6px 14px 14px 6px;
+}
+
+:where(:root[data-theme="night"]) .w-notebook {
+  --face: #3a3152;
+  --thick: 7px;
+  width: 200px;
+  height: 262px;
+  padding: 0;
+  border-radius: 6px 14px 14px 6px;
+}
+
+:where(:root[data-theme="dark"]) .w-notebook {
+  --face: #2a2342;
   --thick: 7px;
   width: 200px;
   height: 262px;
@@ -1448,7 +2249,23 @@ button {
   width: 94px;
   height: 84px;
   fill: none;
-  stroke: var(--nb-cat);
+  stroke: #f3b66a;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke .5s;
+}
+
+:where(:root[data-theme="night"]) .nb-cat {
+  stroke: #ee8c6c;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke .5s;
+}
+
+:where(:root[data-theme="dark"]) .nb-cat {
+  stroke: #b8707a;
   stroke-width: 3;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -1456,13 +2273,35 @@ button {
 }
 
 .nb-cat .dot {
-  fill: var(--nb-cat);
+  fill: #f3b66a;
+  stroke: none;
+}
+
+:where(:root[data-theme="night"]) .nb-cat .dot {
+  fill: #ee8c6c;
+  stroke: none;
+}
+
+:where(:root[data-theme="dark"]) .nb-cat .dot {
+  fill: #b8707a;
   stroke: none;
 }
 
 .nb-star {
   position: absolute;
-  color: var(--nb-cat);
+  color: #f3b66a;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+:where(:root[data-theme="night"]) .nb-star {
+  color: #ee8c6c;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+:where(:root[data-theme="dark"]) .nb-star {
+  color: #b8707a;
   font-size: 1.2rem;
   line-height: 1;
 }
@@ -1483,7 +2322,17 @@ button {
   z-index: -1;
   width: 16px;
   height: 32px;
-  border: 2px solid var(--outline);
+  border: 2px solid #33304f;
+  border-radius: 0 5px 5px 0;
+}
+
+:where(:root[data-theme="night"]) .nb-tab {
+  border: 2px solid #0e0a1f;
+  border-radius: 0 5px 5px 0;
+}
+
+:where(:root[data-theme="dark"]) .nb-tab {
+  border: 2px solid #07040f;
   border-radius: 0 5px 5px 0;
 }
 
@@ -1572,7 +2421,27 @@ button {
   flex: 1;
   min-width: 0;
   padding: 6px 10px;
-  border: 2px solid var(--outline);
+  border: 2px solid #33304f;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .14);
+  color: inherit;
+  font: inherit;
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+:where(:root[data-theme="night"]) .wx-form input {
+  border: 2px solid #0e0a1f;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .14);
+  color: inherit;
+  font: inherit;
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+:where(:root[data-theme="dark"]) .wx-form input {
+  border: 2px solid #07040f;
   border-radius: 999px;
   background: rgba(255, 255, 255, .14);
   color: inherit;
@@ -1588,7 +2457,15 @@ button {
 
 .wx-form input:focus {
   outline: none;
-  border-color: var(--ui-active);
+  border-color: #f2b66a;
+}
+
+:where(:root[data-theme="night"]) .wx-form input:focus {
+  border-color: #ffc27a;
+}
+
+:where(:root[data-theme="dark"]) .wx-form input:focus {
+  border-color: #c9a0ff;
 }
 
 .wx-form button {
@@ -1596,27 +2473,82 @@ button {
   height: 30px;
   flex: none;
   padding: 0;
-  border: 2px solid var(--outline);
+  border: 2px solid #33304f;
   border-radius: 50%;
-  background: var(--ui-active);
-  color: var(--ui-active-ink);
+  background: #f2b66a;
+  color: #3b2a14;
   font-weight: 700;
-  box-shadow: 0 2px 0 var(--outline);
+  font-size: .78rem;
+  box-shadow: 0 2px 0 #33304f;
+}
+
+:where(:root[data-theme="night"]) .wx-form button {
+  border: 2px solid #0e0a1f;
+  border-radius: 50%;
+  background: #ffc27a;
+  color: #2a1530;
+  font-weight: 700;
+  font-size: .78rem;
+  box-shadow: 0 2px 0 #0e0a1f;
+}
+
+:where(:root[data-theme="dark"]) .wx-form button {
+  border: 2px solid #07040f;
+  border-radius: 50%;
+  background: #c9a0ff;
+  color: #170f30;
+  font-weight: 700;
+  font-size: .78rem;
+  box-shadow: 0 2px 0 #07040f;
 }
 
 .custom select {
   max-width: 130px;
   padding: 5px 8px;
-  border: 2px solid var(--outline);
+  border: 2px solid #33304f;
   border-radius: 10px;
-  background: var(--card);
-  color: var(--ink);
+  background: #f8f2e6;
+  color: #3c3552;
+  font: inherit;
+  font-weight: 600;
+}
+
+:where(:root[data-theme="night"]) .custom select {
+  border: 2px solid #0e0a1f;
+  border-radius: 10px;
+  background: #3a3358;
+  color: #efe6ff;
+  font: inherit;
+  font-weight: 600;
+}
+
+:where(:root[data-theme="dark"]) .custom select {
+  border: 2px solid #07040f;
+  border-radius: 10px;
+  background: #2c2548;
+  color: #e3d6ff;
   font: inherit;
   font-weight: 600;
 }
 
 .monitor {
-  --face: var(--clock-body);
+  --face: #efe7d8;
+  --thick: 9px;
+  --w-edge: color-mix(in srgb, var(--face), #000 45%);
+  width: 380px;
+  padding-bottom: 34px;
+}
+
+:where(:root[data-theme="night"]) .monitor {
+  --face: #2e2c58;
+  --thick: 9px;
+  --w-edge: color-mix(in srgb, var(--face), #000 45%);
+  width: 380px;
+  padding-bottom: 34px;
+}
+
+:where(:root[data-theme="dark"]) .monitor {
+  --face: #3a2f66;
   --thick: 9px;
   --w-edge: color-mix(in srgb, var(--face), #000 45%);
   width: 380px;
@@ -1626,15 +2558,27 @@ button {
 .monitor::before {
   content: "";
   position: absolute;
-  left: 6%;
-  right: 6%;
-  top: -24px;
+  inset: -24px 6% auto;
   height: 78%;
   z-index: -2;
   border-radius: 50%;
-  background: radial-gradient(ellipse, var(--screen-glow), transparent 70%);
+  background: radial-gradient(ellipse, transparent, transparent 70%);
   filter: blur(22px);
-  opacity: var(--glow-opacity);
+  opacity: 0;
+  transition: opacity .7s ease;
+}
+
+:where(:root[data-theme="night"]) .monitor::before {
+  background: radial-gradient(ellipse, rgba(120, 170, 255, .85), transparent 70%);
+  filter: blur(22px);
+  opacity: .8;
+  transition: opacity .7s ease;
+}
+
+:where(:root[data-theme="dark"]) .monitor::before {
+  background: radial-gradient(ellipse, rgba(170, 110, 255, .95), transparent 70%);
+  filter: blur(22px);
+  opacity: 1;
   transition: opacity .7s ease;
 }
 
@@ -1653,8 +2597,20 @@ button {
   overflow: hidden;
   border: 6px solid #0d0c16;
   border-radius: 10px;
-  background: var(--screen-bg);
-  color: var(--digit);
+  background: #1e2339;
+  color: #f4f7ff;
+  transition: background .5s ease, color .5s ease;
+}
+
+:where(:root[data-theme="night"]) .mon-glass {
+  background: #14122b;
+  color: #dcc6ff;
+  transition: background .5s ease, color .5s ease;
+}
+
+:where(:root[data-theme="dark"]) .mon-glass {
+  background: #0d0a1f;
+  color: #ff9fe6;
   transition: background .5s ease, color .5s ease;
 }
 
@@ -1678,7 +2634,15 @@ button {
   margin: 0 0 6px;
   font-size: .8rem;
   font-weight: 600;
-  color: var(--digit);
+  color: #f4f7ff;
+}
+
+:where(:root[data-theme="night"]) .mon-label {
+  color: #dcc6ff;
+}
+
+:where(:root[data-theme="dark"]) .mon-label {
+  color: #ff9fe6;
 }
 
 .mon-total {
@@ -1689,8 +2653,20 @@ button {
   font-variant-numeric: tabular-nums;
   letter-spacing: -.04em;
   line-height: .95;
-  color: var(--digit);
-  text-shadow: var(--digit-glow);
+  color: #f4f7ff;
+  text-shadow: 0 0 3px rgba(255, 255, 255, .5);
+  transition: color .5s, text-shadow .5s;
+}
+
+:where(:root[data-theme="night"]) .mon-total {
+  color: #dcc6ff;
+  text-shadow: 0 0 6px #b48cff, 0 0 18px rgba(170, 120, 255, .8);
+  transition: color .5s, text-shadow .5s;
+}
+
+:where(:root[data-theme="dark"]) .mon-total {
+  color: #ff9fe6;
+  text-shadow: 0 0 6px #ff5fd8, 0 0 20px rgba(255, 90, 216, .8), 0 0 44px rgba(150, 90, 255, .5);
   transition: color .5s, text-shadow .5s;
 }
 
@@ -1704,12 +2680,30 @@ button {
 .mon-week i {
   width: 11px;
   border-radius: 3px;
-  background: color-mix(in srgb, var(--digit), transparent 72%);
+  background: color-mix(in srgb, #f4f7ff, transparent 72%);
+  transition: height .4s ease;
+}
+
+:where(:root[data-theme="night"]) .mon-week i {
+  background: color-mix(in srgb, #dcc6ff, transparent 72%);
+  transition: height .4s ease;
+}
+
+:where(:root[data-theme="dark"]) .mon-week i {
+  background: color-mix(in srgb, #ff9fe6, transparent 72%);
   transition: height .4s ease;
 }
 
 .mon-week i.now {
-  background: var(--ui-active);
+  background: #f2b66a;
+}
+
+:where(:root[data-theme="night"]) .mon-week i.now {
+  background: #ffc27a;
+}
+
+:where(:root[data-theme="dark"]) .mon-week i.now {
+  background: #c9a0ff;
 }
 
 .mon-sub {
@@ -1717,7 +2711,15 @@ button {
   font-size: .8rem;
   font-weight: 600;
   line-height: 1.35;
-  color: var(--digit);
+  color: #f4f7ff;
+}
+
+:where(:root[data-theme="night"]) .mon-sub {
+  color: #dcc6ff;
+}
+
+:where(:root[data-theme="dark"]) .mon-sub {
+  color: #ff9fe6;
 }
 
 .mon-form {
@@ -1727,14 +2729,36 @@ button {
   margin-top: auto;
   padding: 5px 5px 5px 14px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--screen-bg), #fff 13%);
-  color: var(--digit);
+  background: color-mix(in srgb, #1e2339, #fff 13%);
+  color: #f4f7ff;
+  transition: background .2s, box-shadow .2s;
+}
+
+:where(:root[data-theme="night"]) .mon-form {
+  background: color-mix(in srgb, #14122b, #fff 13%);
+  color: #dcc6ff;
+  transition: background .2s, box-shadow .2s;
+}
+
+:where(:root[data-theme="dark"]) .mon-form {
+  background: color-mix(in srgb, #0d0a1f, #fff 13%);
+  color: #ff9fe6;
   transition: background .2s, box-shadow .2s;
 }
 
 .mon-form:focus-within {
-  background: color-mix(in srgb, var(--screen-bg), #fff 20%);
-  box-shadow: 0 0 0 2px var(--ui-active);
+  background: color-mix(in srgb, #1e2339, #fff 20%);
+  box-shadow: 0 0 0 2px #f2b66a;
+}
+
+:where(:root[data-theme="night"]) .mon-form:focus-within {
+  background: color-mix(in srgb, #14122b, #fff 20%);
+  box-shadow: 0 0 0 2px #ffc27a;
+}
+
+:where(:root[data-theme="dark"]) .mon-form:focus-within {
+  background: color-mix(in srgb, #0d0a1f, #fff 20%);
+  box-shadow: 0 0 0 2px #c9a0ff;
 }
 
 .mon-form svg {
@@ -1747,14 +2771,38 @@ button {
   padding: 5px 0;
   border: 0;
   background: transparent;
-  color: var(--digit);
+  color: #f4f7ff;
+  font: inherit;
+  font-size: .95rem;
+  font-weight: 600;
+}
+
+:where(:root[data-theme="night"]) .mon-form input {
+  color: #dcc6ff;
+  font: inherit;
+  font-size: .95rem;
+  font-weight: 600;
+}
+
+:where(:root[data-theme="dark"]) .mon-form input {
+  color: #ff9fe6;
   font: inherit;
   font-size: .95rem;
   font-weight: 600;
 }
 
 .mon-form input::placeholder {
-  color: var(--digit);
+  color: #f4f7ff;
+  opacity: .6;
+}
+
+:where(:root[data-theme="night"]) .mon-form input::placeholder {
+  color: #dcc6ff;
+  opacity: .6;
+}
+
+:where(:root[data-theme="dark"]) .mon-form input::placeholder {
+  color: #ff9fe6;
   opacity: .6;
 }
 
@@ -1769,8 +2817,20 @@ button {
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: var(--ui-active);
-  color: var(--ui-active-ink);
+  background: #f2b66a;
+  color: #3b2a14;
+  font-weight: 700;
+}
+
+:where(:root[data-theme="night"]) .mon-form button {
+  background: #ffc27a;
+  color: #2a1530;
+  font-weight: 700;
+}
+
+:where(:root[data-theme="dark"]) .mon-form button {
+  background: #c9a0ff;
+  color: #170f30;
   font-weight: 700;
 }
 
@@ -1791,20 +2851,38 @@ button {
 
 .mon-stand {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: auto 0 0;
   z-index: -1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  filter: drop-shadow(calc(var(--sx) * 8px * var(--h)) calc(var(--sy) * 8px * var(--h)) 5px var(--shadow));
+  filter: drop-shadow(calc(var(--sx) * 8px * var(--h)) calc(var(--sy) * 8px * var(--h)) 5px rgba(116, 64, 20, .4));
+}
+
+:where(:root[data-theme="night"]) .mon-stand {
+  filter: drop-shadow(calc(var(--sx) * 8px * var(--h)) calc(var(--sy) * 8px * var(--h)) 5px rgba(6, 0, 16, .62));
+}
+
+:where(:root[data-theme="dark"]) .mon-stand {
+  filter: drop-shadow(calc(var(--sx) * 8px * var(--h)) calc(var(--sy) * 8px * var(--h)) 5px rgba(2, 0, 12, .74));
 }
 
 .mon-neck {
   width: 58px;
   height: 22px;
-  border: 2px solid var(--outline);
+  border: 2px solid #33304f;
+  border-top: 0;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--face), #000 30%), color-mix(in srgb, var(--face), #fff 10%) 50%, color-mix(in srgb, var(--face), #000 30%));
+}
+
+:where(:root[data-theme="night"]) .mon-neck {
+  border: 2px solid #0e0a1f;
+  border-top: 0;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--face), #000 30%), color-mix(in srgb, var(--face), #fff 10%) 50%, color-mix(in srgb, var(--face), #000 30%));
+}
+
+:where(:root[data-theme="dark"]) .mon-neck {
+  border: 2px solid #07040f;
   border-top: 0;
   background: linear-gradient(90deg, color-mix(in srgb, var(--face), #000 30%), color-mix(in srgb, var(--face), #fff 10%) 50%, color-mix(in srgb, var(--face), #000 30%));
 }
@@ -1813,14 +2891,50 @@ button {
   width: 156px;
   height: 14px;
   margin-top: -2px;
-  border: 2px solid var(--outline);
+  border: 2px solid #33304f;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--face), #000 14%);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, .3);
+}
+
+:where(:root[data-theme="night"]) .mon-foot {
+  border: 2px solid #0e0a1f;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--face), #000 14%);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, .3);
+}
+
+:where(:root[data-theme="dark"]) .mon-foot {
+  border: 2px solid #07040f;
   border-radius: 8px;
   background: color-mix(in srgb, var(--face), #000 14%);
   box-shadow: inset 0 2px 0 rgba(255, 255, 255, .3);
 }
 
 .w-timer {
-  --face: var(--clock-body);
+  --face: #efe7d8;
+  --thick: 11px;
+  display: grid;
+  place-items: center;
+  width: 196px;
+  height: 196px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+:where(:root[data-theme="night"]) .w-timer {
+  --face: #2e2c58;
+  --thick: 11px;
+  display: grid;
+  place-items: center;
+  width: 196px;
+  height: 196px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+:where(:root[data-theme="dark"]) .w-timer {
+  --face: #3a2f66;
   --thick: 11px;
   display: grid;
   place-items: center;
@@ -1841,8 +2955,18 @@ button {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: var(--ui-active);
-  border: 2px solid var(--outline);
+  background: #f2b66a;
+  border: 2px solid #33304f;
+}
+
+:where(:root[data-theme="night"]) .w-timer .resize {
+  background: #ffc27a;
+  border: 2px solid #0e0a1f;
+}
+
+:where(:root[data-theme="dark"]) .w-timer .resize {
+  background: #c9a0ff;
+  border: 2px solid #07040f;
 }
 
 .dial {
@@ -1851,8 +2975,18 @@ button {
   width: 172px;
   height: 172px;
   border-radius: 50%;
-  background: conic-gradient(var(--ui-active) var(--p, 100%), rgba(0, 0, 0, .3) 0);
-  box-shadow: 0 0 0 2px var(--outline);
+  background: conic-gradient(#f2b66a var(--p, 100%), rgba(0, 0, 0, .3) 0);
+  box-shadow: 0 0 0 2px #33304f;
+}
+
+:where(:root[data-theme="night"]) .dial {
+  background: conic-gradient(#ffc27a var(--p, 100%), rgba(0, 0, 0, .3) 0);
+  box-shadow: 0 0 0 2px #0e0a1f;
+}
+
+:where(:root[data-theme="dark"]) .dial {
+  background: conic-gradient(#c9a0ff var(--p, 100%), rgba(0, 0, 0, .3) 0);
+  box-shadow: 0 0 0 2px #07040f;
 }
 
 .timer-face {
@@ -1863,9 +2997,23 @@ button {
   gap: 2px;
   width: 146px;
   height: 146px;
-  border: 2px solid var(--outline);
+  border: 2px solid #33304f;
   border-radius: 50%;
-  background: var(--screen-bg);
+  background: #1e2339;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, .4);
+}
+
+:where(:root[data-theme="night"]) .timer-face {
+  border: 2px solid #0e0a1f;
+  border-radius: 50%;
+  background: #14122b;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, .4);
+}
+
+:where(:root[data-theme="dark"]) .timer-face {
+  border: 2px solid #07040f;
+  border-radius: 50%;
+  background: #0d0a1f;
   box-shadow: inset 0 3px 8px rgba(0, 0, 0, .4);
 }
 
@@ -1873,7 +3021,17 @@ button {
   font-size: .62rem;
   font-weight: 700;
   letter-spacing: .22em;
-  color: var(--digit);
+  color: #f4f7ff;
+  opacity: .75;
+}
+
+:where(:root[data-theme="night"]) .timer-label {
+  color: #dcc6ff;
+  opacity: .75;
+}
+
+:where(:root[data-theme="dark"]) .timer-label {
+  color: #ff9fe6;
   opacity: .75;
 }
 
@@ -1881,8 +3039,18 @@ button {
   font-family: "VT323", monospace;
   font-size: 3.2rem;
   line-height: .9;
-  color: var(--digit);
-  text-shadow: var(--digit-glow);
+  color: #f4f7ff;
+  text-shadow: 0 0 3px rgba(255, 255, 255, .5);
+}
+
+:where(:root[data-theme="night"]) .timer-digits {
+  color: #dcc6ff;
+  text-shadow: 0 0 6px #b48cff, 0 0 18px rgba(170, 120, 255, .8);
+}
+
+:where(:root[data-theme="dark"]) .timer-digits {
+  color: #ff9fe6;
+  text-shadow: 0 0 6px #ff5fd8, 0 0 20px rgba(255, 90, 216, .8), 0 0 44px rgba(150, 90, 255, .5);
 }
 
 .timer-btns {
@@ -1895,14 +3063,36 @@ button {
   width: 26px;
   height: 26px;
   padding: 0;
-  border: 2px solid var(--outline);
+  border: 2px solid #33304f;
   border-radius: 50%;
-  background: var(--ui-active);
-  color: var(--ui-active-ink);
+  background: #f2b66a;
+  color: #3b2a14;
   font-size: .8rem;
   font-weight: 700;
   line-height: 1;
-  box-shadow: 0 2px 0 var(--outline);
+  box-shadow: 0 2px 0 #33304f;
+}
+
+:where(:root[data-theme="night"]) .timer-btns button {
+  border: 2px solid #0e0a1f;
+  border-radius: 50%;
+  background: #ffc27a;
+  color: #2a1530;
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 2px 0 #0e0a1f;
+}
+
+:where(:root[data-theme="dark"]) .timer-btns button {
+  border: 2px solid #07040f;
+  border-radius: 50%;
+  background: #c9a0ff;
+  color: #170f30;
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 2px 0 #07040f;
 }
 
 .timer-btns button:active {
@@ -1937,9 +3127,23 @@ button {
   align-items: center;
   gap: 10px;
   padding: 8px 12px;
-  border: 2px solid var(--outline);
+  border: 2px solid #33304f;
   border-radius: 14px;
-  background: var(--screen-bg);
+  background: #1e2339;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, .4);
+}
+
+:where(:root[data-theme="night"]) .wx-screen {
+  border: 2px solid #0e0a1f;
+  border-radius: 14px;
+  background: #14122b;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, .4);
+}
+
+:where(:root[data-theme="dark"]) .wx-screen {
+  border: 2px solid #07040f;
+  border-radius: 14px;
+  background: #0d0a1f;
   box-shadow: inset 0 3px 8px rgba(0, 0, 0, .4);
 }
 
@@ -1950,8 +3154,18 @@ button {
   font-family: "VT323", monospace;
   font-size: 3.2rem;
   line-height: .9;
-  color: var(--digit);
-  text-shadow: var(--digit-glow);
+  color: #f4f7ff;
+  text-shadow: 0 0 3px rgba(255, 255, 255, .5);
+}
+
+:where(:root[data-theme="night"]) .wx-temp {
+  color: #dcc6ff;
+  text-shadow: 0 0 6px #b48cff, 0 0 18px rgba(170, 120, 255, .8);
+}
+
+:where(:root[data-theme="dark"]) .wx-temp {
+  color: #ff9fe6;
+  text-shadow: 0 0 6px #ff5fd8, 0 0 20px rgba(255, 90, 216, .8), 0 0 44px rgba(150, 90, 255, .5);
 }
 
 .wx-meta {
@@ -1969,22 +3183,21 @@ button {
 .wx-text {
   font-size: .72rem;
   font-weight: 700;
-  color: var(--digit);
+  color: #f4f7ff;
+}
+
+:where(:root[data-theme="night"]) .wx-text {
+  color: #dcc6ff;
+}
+
+:where(:root[data-theme="dark"]) .wx-text {
+  color: #ff9fe6;
 }
 
 .wx-city {
   margin: 8px 2px 6px;
   font-size: .85rem;
   font-weight: 700;
-}
-
-.wx-form {
-  display: flex;
-  gap: 6px;
-}
-
-.wx-form button {
-  font-size: .78rem;
 }
 
 .edit {
@@ -2001,12 +3214,30 @@ button {
 }
 
 .c-paper {
-  --face: var(--card);
+  --face: #f8f2e6;
+}
+
+:where(:root[data-theme="night"]) .c-paper {
+  --face: #3a3358;
+}
+
+:where(:root[data-theme="dark"]) .c-paper {
+  --face: #2c2548;
 }
 
 .c-ink {
-  --face: var(--screen-bg);
-  --note-ink: var(--digit);
+  --face: #1e2339;
+  --note-ink: #f4f7ff;
+}
+
+:where(:root[data-theme="night"]) .c-ink {
+  --face: #14122b;
+  --note-ink: #dcc6ff;
+}
+
+:where(:root[data-theme="dark"]) .c-ink {
+  --face: #0d0a1f;
+  --note-ink: #ff9fe6;
 }
 
 .w-link {
@@ -2026,7 +3257,17 @@ button {
   height: 128px;
 }
 
-.lk-trading {
+.lk-mail .link-name {
+  left: 20px;
+  top: 68px;
+}
+
+.lk-mail .link-host {
+  left: 20px;
+  top: 100px;
+}
+
+.lk-trading, .lk-maps {
   width: 210px;
   height: 124px;
 }
@@ -2039,11 +3280,6 @@ button {
 .lk-finance {
   width: 210px;
   height: 112px;
-}
-
-.lk-maps {
-  width: 210px;
-  height: 124px;
 }
 
 .lk-videos {
@@ -2078,7 +3314,70 @@ button {
 
 .lk-custom {
   width: 148px;
-  height: 156px;
+  height: 168px;
+  border-radius: 28px 28px 12px 12px;
+}
+
+.lk-custom::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  border: 2px solid #33304f;
+  border-radius: 50%;
+  background: var(--wood);
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, .35);
+}
+
+:where(:root[data-theme="night"]) .lk-custom::before {
+  border: 2px solid #0e0a1f;
+  border-radius: 50%;
+  background: var(--wood);
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, .35);
+}
+
+:where(:root[data-theme="dark"]) .lk-custom::before {
+  border: 2px solid #07040f;
+  border-radius: 50%;
+  background: var(--wood);
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, .35);
+}
+
+.lk-custom::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -16px;
+  width: 36px;
+  height: 22px;
+  margin-left: -18px;
+  border: 3px solid #33304f;
+  border-bottom: 0;
+  border-radius: 18px 18px 0 0;
+}
+
+:where(:root[data-theme="night"]) .lk-custom::after {
+  border: 3px solid #0e0a1f;
+  border-bottom: 0;
+  border-radius: 18px 18px 0 0;
+}
+
+:where(:root[data-theme="dark"]) .lk-custom::after {
+  border: 3px solid #07040f;
+  border-bottom: 0;
+  border-radius: 18px 18px 0 0;
+}
+
+.lk-custom .link-a::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 2px dashed color-mix(in srgb, var(--note-ink), transparent 60%);
+  border-radius: 21px 21px 6px 6px;
+  pointer-events: none;
 }
 
 .link-a {
@@ -2092,7 +3391,17 @@ button {
 }
 
 .link-a:focus-visible {
-  outline: 3px solid var(--outline);
+  outline: 3px solid #33304f;
+  outline-offset: -3px;
+}
+
+:where(:root[data-theme="night"]) .link-a:focus-visible {
+  outline: 3px solid #0e0a1f;
+  outline-offset: -3px;
+}
+
+:where(:root[data-theme="dark"]) .link-a:focus-visible {
+  outline: 3px solid #07040f;
   outline-offset: -3px;
 }
 
@@ -2106,7 +3415,21 @@ button {
 }
 
 .k-ln {
-  stroke: var(--outline);
+  stroke: #33304f;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+:where(:root[data-theme="night"]) .k-ln {
+  stroke: #0e0a1f;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+:where(:root[data-theme="dark"]) .k-ln {
+  stroke: #07040f;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -2121,7 +3444,15 @@ button {
 }
 
 .k-ac {
-  fill: var(--ui-active);
+  fill: #f2b66a;
+}
+
+:where(:root[data-theme="night"]) .k-ac {
+  fill: #ffc27a;
+}
+
+:where(:root[data-theme="dark"]) .k-ac {
+  fill: #c9a0ff;
 }
 
 .k-ink {
@@ -2130,17 +3461,45 @@ button {
 
 .k-lt {
   fill: #f4efe6;
-  stroke: var(--outline);
+  stroke: #33304f;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+:where(:root[data-theme="night"]) .k-lt {
+  stroke: #0e0a1f;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+:where(:root[data-theme="dark"]) .k-lt {
+  stroke: #07040f;
   stroke-width: 2;
   stroke-linejoin: round;
 }
 
 .k-up {
-  fill: var(--n-mint);
+  fill: #a9dcb5;
+}
+
+:where(:root[data-theme="night"]) .k-up {
+  fill: #6fae8e;
+}
+
+:where(:root[data-theme="dark"]) .k-up {
+  fill: #50866f;
 }
 
 .k-down {
-  fill: var(--n-pink);
+  fill: #f6a9c1;
+}
+
+:where(:root[data-theme="night"]) .k-down {
+  fill: #c47ca8;
+}
+
+:where(:root[data-theme="dark"]) .k-down {
+  fill: #8f5a86;
 }
 
 .k-soft {
@@ -2153,7 +3512,21 @@ button {
 
 .k-route {
   fill: none;
-  stroke: var(--ui-active);
+  stroke: #f2b66a;
+  stroke-width: 3.5;
+  stroke-dasharray: 2 8;
+  stroke-linecap: round;
+}
+
+:where(:root[data-theme="night"]) .k-route {
+  stroke: #ffc27a;
+  stroke-width: 3.5;
+  stroke-dasharray: 2 8;
+  stroke-linecap: round;
+}
+
+:where(:root[data-theme="dark"]) .k-route {
+  stroke: #c9a0ff;
   stroke-width: 3.5;
   stroke-dasharray: 2 8;
   stroke-linecap: round;
@@ -2161,6 +3534,66 @@ button {
 
 .k-blink {
   animation: blink 1s steps(1) infinite;
+}
+
+.k-edge {
+  stroke: #33304f;
+}
+
+:where(:root[data-theme="night"]) .k-edge {
+  stroke: #0e0a1f;
+}
+
+:where(:root[data-theme="dark"]) .k-edge {
+  stroke: #07040f;
+}
+
+.k-digit {
+  stroke: #f4f7ff;
+}
+
+:where(:root[data-theme="night"]) .k-digit {
+  stroke: #dcc6ff;
+}
+
+:where(:root[data-theme="dark"]) .k-digit {
+  stroke: #ff9fe6;
+}
+
+.k-pen {
+  stroke: #f2b66a;
+}
+
+:where(:root[data-theme="night"]) .k-pen {
+  stroke: #ffc27a;
+}
+
+:where(:root[data-theme="dark"]) .k-pen {
+  stroke: #c9a0ff;
+}
+
+.k-edge-blue {
+  stroke: #8fb8ee;
+}
+
+:where(:root[data-theme="night"]) .k-edge-blue {
+  stroke: #7480cc;
+}
+
+:where(:root[data-theme="dark"]) .k-edge-blue {
+  stroke: #505ca8;
+}
+
+.k-edge-pink {
+  stroke: #f6a9c1;
+}
+
+:where(:root[data-theme="night"]) .k-edge-pink {
+  stroke: #c47ca8;
+}
+
+:where(:root[data-theme="dark"]) .k-edge-pink {
+  stroke: #8f5a86;
 }
 
 .link-name, .link-host {
@@ -2195,16 +3628,6 @@ button {
 .lk-news .link-host {
   right: 16px;
   top: 54px;
-}
-
-.lk-mail .link-name {
-  left: 18px;
-  top: 78px;
-}
-
-.lk-mail .link-host {
-  left: 18px;
-  top: 108px;
 }
 
 .lk-trading .link-name, .lk-crypto .link-name {
@@ -2280,7 +3703,7 @@ button {
   top: 46px;
 }
 
-.lk-shop .link-name, .lk-shop .link-host {
+.lk-shop .link-name, .lk-shop .link-host, .lk-custom .link-name, .lk-custom .link-host {
   left: 0;
   right: 0;
   text-align: center;
@@ -2313,10 +3736,24 @@ button {
   margin-left: -34px;
   display: grid;
   place-items: center;
-  border: 2px solid var(--outline);
+  border: 2px solid #33304f;
   border-radius: 18px;
   background: #fff;
-  box-shadow: 0 4px 0 #b9b5c6, 0 9px 10px var(--shadow);
+  box-shadow: 0 4px 0 #b9b5c6, 0 9px 10px rgba(116, 64, 20, .4);
+}
+
+:where(:root[data-theme="night"]) .lk-logo {
+  border: 2px solid #0e0a1f;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 4px 0 #b9b5c6, 0 9px 10px rgba(6, 0, 16, .62);
+}
+
+:where(:root[data-theme="dark"]) .lk-logo {
+  border: 2px solid #07040f;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 4px 0 #b9b5c6, 0 9px 10px rgba(2, 0, 12, .74);
 }
 
 .lk-logo img {
@@ -2329,12 +3766,6 @@ button {
   font-family: "Patrick Hand", cursive;
   font-size: 2.1rem;
   color: #3c3552;
-}
-
-.lk-custom .link-name, .lk-custom .link-host {
-  left: 0;
-  right: 0;
-  text-align: center;
 }
 
 .lk-custom .link-name {
@@ -2352,9 +3783,14 @@ button {
 }
 
 @media (max-width: 700px) {
-  :root {
-    --wall-h: 48px;
-    --floor-h: 132px;
+  .wall {
+    height: 48px;
+  }
+  .floor {
+    height: 132px;
+  }
+  .table {
+    inset: 48px 3px 132px;
   }
   .clock-hm {
     font-size: 3.2rem;

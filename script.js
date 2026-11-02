@@ -24,14 +24,15 @@
   ];
   const DEFAULT_WOOD = WOODS[0].color;
 
-  const desk = document.getElementById("desk");
-  const itemsEl = document.getElementById("items");
-  const plantsEl = document.getElementById("plants");
-  const addMenu = document.getElementById("addMenu");
-  const swatchesEl = document.getElementById("swatches");
-  const woodPicker = document.getElementById("woodPicker");
-  const resetBtn = document.getElementById("resetBtn");
-  const engineSel = document.getElementById("engine");
+  const desk = document.querySelector("#desk");
+  const itemsEl = desk.querySelector("#items");
+  const plantsEl = desk.querySelector("#plants");
+  const addMenu = document.querySelector("#addMenu");
+  const settings = document.querySelector("#settingsPanel");
+  const swatchesEl = settings.querySelector("#swatches");
+  const woodPicker = settings.querySelector("#woodPicker");
+  const resetBtn = settings.querySelector("#resetBtn");
+  const engineSel = settings.querySelector("#engine");
 
   const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
 
@@ -47,14 +48,14 @@
     items: [
       { id: uid(), type: "lamp", x: 0.042, y: 0.48, z: 1, rot: 0, scale: 0.6, data: { on: true } },
       { id: uid(), type: "note", x: 0.168, y: 0.364, z: 2, rot: -8, scale: 0.8, data: { text: "LETS GO\nHACKCUB!!", color: "pink" } },
-      { id: uid(), type: "todo", x: 0.302, y: 0.047, z: 3, rot: -6, scale: 0.82, data: { tasks: [{ t: "ship", d: false }, { t: "super star", d: false }] } },
+      { id: uid(), type: "todo", x: 0.302, y: 0.047, z: 3, rot: -6, scale: 0.82, data: { tasks: [{ t: "BE BORN", d: true },{ t: "GET A CAT", d: false }, { t: "DIEEE", d: false }] } },
       { id: uid(), type: "weather", x: 0.603, y: 0.038, z: 4, rot: 0, scale: 0.6, data: { city: null, unit: "c", cache: null } },
       { id: uid(), type: "timer", x: 0.798, y: 0.028, z: 5, rot: 0, scale: 0.86, data: { mins: 5, left: 300, endAt: null } },
-      { id: uid(), type: "note", x: 0.749, y: 0.509, z: 6, rot: 10, scale: 0.8, data: { text: "What is the\npurpose of life\nif not super\nstar??", color: "blue" } },
+      { id: uid(), type: "note", x: 0.749, y: 0.509, z: 6, rot: 10, scale: 0.8, data: { text: "What is the\npurpose of life\nif not cats??", color: "blue" } },
       { id: uid(), type: "search", x: 0.495, y: 0.475, z: 7, rot: 0, scale: 1.14 },
       { id: uid(), type: "notebook", x: 0.222, y: 0.922, z: 8, rot: 10, scale: 0.72, data: { text: "", open: false } },
-      { id: uid(), type: "link", x: 0.031, y: 0.842, z: 9, rot: 0, scale: 0.84, data: { label: "News", url: "https://news.google.com", color: "lilac", kind: "custom" } },
-      { id: uid(), type: "link", x: 0.512, y: 0.933, z: 10, rot: 0, scale: 0.7, data: { label: "Mail", url: "https://mail.google.com", color: "pink", kind: "custom" } },
+      { id: uid(), type: "link", x: 0.016, y: 0.821, z: 9, rot: 0, scale: 0.72, data: { label: "News", url: "https://news.google.com", color: "paper", kind: "news" } },
+      { id: uid(), type: "link", x: 0.512, y: 0.915, z: 10, rot: 0, scale: 0.68, data: { label: "Mail", url: "https://mail.google.com", color: "paper", kind: "mail" } },
       { id: uid(), type: "clock", x: 0.727, y: 0.936, z: 11, rot: -8, scale: 0.9 },
       { id: uid(), type: "calendar", x: 0.961, y: 0.868, z: 12, rot: 0, scale: 0.84 },
     ],
@@ -98,8 +99,10 @@
   }
 
   function searchUrl(q) {
-    if (/^(https?:\/\/)?[^\s/]+\.[a-z]{2,}(\/\S*)?$/i.test(q)) {
-      return /^https?:\/\//i.test(q) ? q : "https://" + q;
+    const hasScheme = /^https?:\/\//i.test(q);
+    const rest = q.replace(/^https?:\/\//i, "");
+    if (/^[^\s/]+\.[a-z]{2,}(\/\S*)?$/i.test(rest)) {
+      return hasScheme ? q : "https://" + q;
     }
     return (ENGINES[state.engine] || ENGINES.google) + encodeURIComponent(q);
   }
@@ -141,13 +144,16 @@
   }
 
   const SCREEN_KEY = "table-screen-v1";
-  const screenLog = (() => {
+  function loadScreenLog() {
     try {
-      return JSON.parse(localStorage.getItem(SCREEN_KEY)) || {};
+      const raw = localStorage.getItem(SCREEN_KEY);
+      return (raw && JSON.parse(raw)) || {};
     } catch {
       return {};
     }
-  })();
+  }
+
+  const screenLog = loadScreenLog();
   const screenEls = new Set();
   let sinceSave = 0;
 
@@ -232,7 +238,7 @@
     ["Trading", "https://www.tradingview.com", "ink", "trading"],
     ["Crypto", "https://www.coingecko.com", "yellow", "crypto"],
     ["Finance", "https://finance.yahoo.com", "mint", "finance"],
-    ["Mail", "https://mail.google.com", "pink", "mail"],
+    ["Mail", "https://mail.google.com", "paper", "mail"],
     ["Maps", "https://maps.google.com", "blue", "maps"],
     ["Videos", "https://www.youtube.com", "ink", "videos"],
     ["Music", "https://open.spotify.com", "lilac", "music"],
@@ -244,23 +250,34 @@
 
   const LINK_ART = {
     news: `<svg class="lk-art" viewBox="0 0 230 138" aria-hidden="true">
+      <circle class="k-ac k-ln" cx="192" cy="25" r="13"/>
+      <path class="k-ink" d="M192 18L193.7 22.65L198.66 22.84L194.76 25.9L196.12 30.66L192 27.9L187.88 30.66L189.24 25.9L185.34 22.84L190.3 22.65Z"/>
       <path class="k-ln" fill="none" style="stroke-width:3" d="M14 46H216"/>
       <path class="k-ln" fill="none" style="stroke-width:1.5" d="M14 51H216"/>
-      <rect class="k-f1 k-ln" x="14" y="62" width="76" height="46" rx="2"/>
+      <rect class="k-f1 k-ln" x="14" y="60" width="76" height="48" rx="2"/>
       <path class="k-f2" d="M15 107L40 84L58 98L72 86L89 107Z"/>
-      <circle class="k-ac" cx="74" cy="76" r="6"/>
-      <path class="k-soft" d="M102 68H216M102 80H216M102 92H190M102 104H216"/>
-      <path class="k-soft" d="M14 120H216M14 130H150"/>
+      <circle class="k-ac" cx="74" cy="74" r="6"/>
+      <path class="k-soft" d="M14 117H90M14 125H66"/>
+      <path class="k-ln" fill="none" style="opacity:.3" d="M98 60V128"/>
+      <path fill="none" stroke="var(--note-ink)" stroke-width="6" stroke-linecap="round" style="opacity:.85" d="M106 78H216M106 90H182"/>
+      <path class="k-soft" d="M106 102H216M106 111H216M106 120H196M106 129H216"/>
     </svg>`,
     mail: `<svg class="lk-art" viewBox="0 0 210 128" aria-hidden="true">
-      <path class="k-f2 k-ln" d="M3 3L105 72L207 3Z"/>
-      <rect class="k-ac k-ln" x="158" y="14" width="38" height="46" rx="2"/>
-      <rect fill="none" stroke="var(--outline)" stroke-dasharray="3 3" style="stroke-width:1.5" x="163" y="19" width="28" height="36"/>
-      <circle class="k-f2" cx="177" cy="37" r="7"/>
+      <rect class="k-edge-blue" fill="none" stroke-width="5" stroke-dasharray="12 12" x="6" y="6" width="198" height="116" rx="3"/>
+      <rect class="k-edge-pink" fill="none" stroke-width="5" stroke-dasharray="12 12" stroke-dashoffset="12" x="6" y="6" width="198" height="116" rx="3"/>
+      <path class="k-soft" d="M20 30H104M20 43H92M20 56H98"/>
+      <rect class="k-edge" fill="#f4efe6" stroke-width="2" x="150" y="16" width="42" height="50"/>
+      <rect class="k-edge" fill="none" stroke-width="4" stroke-dasharray="2 4" style="opacity:.35" x="150" y="16" width="42" height="50"/>
+      <rect class="k-ac" x="156" y="22" width="30" height="38"/>
+      <circle fill="#f4efe6" cx="171" cy="34" r="5"/>
+      <path class="k-f1" d="M156 60L166 46L173 54L179 48L186 60Z"/>
+      <circle class="k-edge" fill="none" stroke-width="2" style="opacity:.5" cx="140" cy="42" r="20"/>
+      <path class="k-edge" fill="none" stroke-width="2" stroke-linecap="round" style="opacity:.5" d="M126 36H154M124 42H156M126 48H154"/>
+      <path class="k-edge" fill="none" stroke-width="2" stroke-linecap="round" style="opacity:.5" d="M162 28q5-4 10 0t10 0t10 0M162 38q5-4 10 0t10 0t10 0M162 48q5-4 10 0t10 0t10 0"/>
     </svg>`,
     trading: `<svg class="lk-art" viewBox="0 0 210 124" aria-hidden="true">
-      <path fill="none" stroke="var(--digit)" style="stroke-width:2;opacity:.55" stroke-linecap="round" d="M92 74V112M112 66V104M132 70V100M152 52V92M172 40V80M192 28V66"/>
-      <path fill="none" stroke="var(--digit)" style="stroke-width:1.5;opacity:.25" d="M80 114H204"/>
+      <path class="k-digit" fill="none" style="stroke-width:2;opacity:.55" stroke-linecap="round" d="M92 74V112M112 66V104M132 70V100M152 52V92M172 40V80M192 28V66"/>
+      <path class="k-digit" fill="none" style="stroke-width:1.5;opacity:.25" d="M80 114H204"/>
       <rect class="k-down" x="87" y="84" width="10" height="18" rx="2"/>
       <rect class="k-up" x="107" y="74" width="10" height="20" rx="2"/>
       <rect class="k-down" x="127" y="78" width="10" height="12" rx="2"/>
@@ -302,7 +319,7 @@
       <circle class="k-ink" cx="80" cy="64" r="2.6"/>
     </svg>`,
     code: `<svg class="lk-art" viewBox="0 0 200 112" aria-hidden="true">
-      <path fill="none" stroke="var(--ui-active)" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:4" d="M20 32L38 46L20 60"/>
+      <path class="k-pen" fill="none" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:4" d="M20 32L38 46L20 60"/>
       <rect class="k-ac k-blink" x="112" y="52" width="12" height="4"/>
     </svg>`,
     docs: `<svg class="lk-art" viewBox="0 0 170 130" aria-hidden="true">
